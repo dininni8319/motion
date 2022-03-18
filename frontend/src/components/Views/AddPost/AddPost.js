@@ -5,23 +5,15 @@ import { useNavigate } from 'react-router';
 const AddPost = () => {
     const navigate = useNavigate()
     const [ content , setContent ] = useState('')
-    
-    
-    // const file = useRef(null)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log('hello');
-        const data = {
-            content: content,
-        }
-
-        fetch('http://localhost:8000/api/add-post', {
+        fetch('http://localhost:8000/api/users/add-post', {
             method: "POST",
             headers:{"Content-Type" : "application/json"},
             body: JSON.stringify({
-                data
+                content: content,
             })
         })
             .then( resp => {

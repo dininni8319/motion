@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//if we hit any route this will show
 
-Route::get('/', function () {
+Route::get('/{path?}', function () {
     return view('welcome');
-});
+})->where('path', '.*');
 
-Route::post('/post', [PublicController::class, 'createPost'])->name('createPost');
+

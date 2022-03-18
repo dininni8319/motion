@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
             $table->text('content');
+            $table->string('email')->nullable();
             $table->string('img')->nullable();
             $table->timestamps();
             // $table->unsignedBigInteger('user_id');

@@ -19,9 +19,11 @@ class PublicController extends Controller
     }
 
     public function storePost(Request $request) {
-        
-        $post = new Post;
-        $post = $request->input('content');
+       
+        $post = new Post();
+        $post->name = $request->name;
+        $post->email = $request->email;
+        $post->content = $request->content;
         // $post = $request->file('img')->store('public/img');
         $post->save();
 
@@ -31,4 +33,26 @@ class PublicController extends Controller
         ]);
     }
 
+    public function editPost($id){
+        $post = Post::find($id);
+
+        return response()->json([
+            'status' => 200,
+            'posts' => $post
+        ]);    
+    }
+
+    public function updatePost(Request $request, $id) {
+
+        $post = Post::find($id);
+         
+        $post->name = $request->name;
+        $post->email = $request->email;
+         
+    }
+ 
+    public function destroy($id) {
+        $post = Post::find($id);
+        $post->delete();
+    }
 }
