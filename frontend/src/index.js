@@ -7,20 +7,13 @@ import reportWebVitals from './reportWebVitals';
 import AddPost from './components/Views/AddPost/AddPost';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='/' element={
-          <App />
-        }>
-        </Route>
-        <Route path='/add-post' element={
-          <AddPost />
-        }>
-        </Route>
-      </Routes>
-    </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Router>
+            <Routes>
+                <Route path="/" element={<App />}></Route>
+                <Route path="/add-post" element={<AddPost />}></Route>
+            </Routes>
+        </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
-
