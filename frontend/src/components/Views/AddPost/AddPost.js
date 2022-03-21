@@ -26,7 +26,7 @@ const AddPost = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="p-5 d-flex flex-column">
+        <form onSubmit={handleSubmit} className="p-5 d-flex flex-column ">
             <div className="p-5 d-flex flex-column">
                 <label htmlFor="">Content</label>
                 <input
