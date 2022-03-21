@@ -13,7 +13,7 @@ const App = () => {
 
     return (
         <>
-            <section className="d-flex flex-column align-items-center justify-content-center min-vh-100">
+            <section className="App d-flex flex-column align-items-center justify-content-center min-vh-100">
                 <h1 className="text-3xl font-bold underline bg-purple-100">
                     All Post
                 </h1>
