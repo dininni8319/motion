@@ -23,14 +23,16 @@ export const GlobalStyle = createGlobalStyle`
 
     .error{
         color:red;
-    }
+    } 
 
 `;
 
 export const Theme = {
     //Colors
     backgroundColor: '#f2f2f2',
-    backgroundColorLightGrey: '#FCEADE',
+    textWhiteColor: 'white',
+    borderColor: '#FCEADE',
+    buttoncolor: '#A56FF8',
     greyColor: '#c1c1c1',
     pinkColor: '#586BA4',
     whiteColor: '#fff',

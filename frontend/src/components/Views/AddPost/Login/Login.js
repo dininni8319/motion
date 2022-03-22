@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { ConfigContext } from '../../../Context/Config/index';
 import { AuthContext } from '../../../Context/Auth/index';
+import { LoginStyled, InputSection } from './LoginStyle';
+import { ButtonStyle } from '../Register/RegisterStyle';
 
 const Login = () => {
     
@@ -30,17 +32,22 @@ const Login = () => {
     }
     
     return (
-       <form onSubmit={handleLogin}> 
-           <div>
-               <label htmlFor="">Email</label>
-               <input type="email" {...email}/>
-           </div>
-           <div>
-               <label htmlFor="">Password</label>
-               <input type="password" {...password}/>
-           </div>
-           <button type='submit'>Submit</button>
-       </form>
+       <LoginStyled onSubmit={handleLogin}> 
+            <section className='row-form'>
+                <InputSection className="mb-5 flex flex-col">
+                    <h1 className={`text-black font-bold text-2xl mb-2`}>Login</h1>
+                    <label htmlFor="">Email</label>
+                    <input type="email" {...email}/>
+                </InputSection>
+                <InputSection className="mb-5 flex flex-col">
+                    <label htmlFor="">Password</label>
+                    <input type="password" {...password}/>
+                    <ButtonStyle type='submit'>Submit</ButtonStyle>
+                </InputSection>
+                
+               
+            </section>
+       </LoginStyled>
     )
 };
 

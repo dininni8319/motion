@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router';
 import { ConfigContext } from '../../../Context/Config';
 import { AuthContext } from '../../../Context/Auth';
 import useInput from './../../../../Hooks/useInput';
+import { RegisterStyle, ButtonStyle } from './RegisterStyle';
+import { InputSection } from '../Login/LoginStyle'
 
 const Register = () => {
+
     const navigate = useNavigate();
     const first_name = useInput('');
     const last_name = useInput('');
@@ -61,50 +64,51 @@ const Register = () => {
     };
 
     return (
-        <form onSubmit={SignUp}>
-            <h1 className={`text-black font-bold text-2xl mb-2`}>Register</h1>
-            <div className="mb-5 flex flex-col">
-                <label className="form-label mb-2" htmlFor="userName">
-                    Enter your First Name
-                </label>
-                <input type="text" id="userName" {...first_name} />
-            </div>
-            <div className="mb-5 flex flex-col">
-                <label className="form-label mb-2" htmlFor="userName">
-                    Enter your Last Name
-                </label>
-                <input type="text" id="userName" {...last_name} />
-            </div>
-            <div>
-                <label className="form-label mb-2" htmlFor="userMail">
-                    Enter your Email
-                </label>
-                <input type="email" id="userMail" {...email} />
-            </div>
-            <div className="mb-5 flex flex-col">
-                <label className="form-label mb-2" htmlFor="userPassword">
-                    Enter a new Password
-                </label>
-                <input type="password" id="userPassword" {...password} />
-            </div>
-            <div className="mb-5 flex flex-col">
-                <label
-                    className="form-label mb-2"
-                    htmlFor="userPasswordConfirm"
-                >
-                    Confirm the entered Password
-                </label>
-                <input
-                    type="password"
-                    id="userPasswordConfirm"
-                    {...passwordConfirm}
-                />
-            </div>
-            <div className="mb-4 flex flex-col">
-                <button type="submit">Register</button>
-            </div>
-            {/* <Link to='/login' className={`link-color-custom`}>Did you registerd already? Please Login!</Link> */}
-        </form>
+            <RegisterStyle onSubmit={SignUp} className='form-custom'>
+                    <InputSection className="mb-5 flex flex-col">
+                        <h1 className={`text-black font-bold text-2xl mb-2`}>Register</h1>
+                        <label className="form-label mb-2" htmlFor="userName">
+                            Enter your First Name
+                        </label>
+                        <input type="text" id="userName" {...first_name} />
+                    </InputSection>
+                    <InputSection className="mb-5 flex flex-col">
+                        <label className="form-label mb-2" htmlFor="userName">
+                            Enter your Last Name
+                        </label>
+                        <input type="text" id="userName" {...last_name} />
+                    </InputSection>
+                    <InputSection className="mb-5 flex flex-col">
+                        <label className="form-label mb-2" htmlFor="userMail">
+                            Enter your Email
+                        </label>
+                        <input type="email" id="userMail" {...email}/>
+                    </InputSection>
+                    <InputSection className="mb-5 flex flex-col">
+                        <label className="form-label mb-2" htmlFor="userPassword">
+                            Enter a new Password
+                        </label>
+                        <input type="password" id="userPassword" {...password}/>
+                    </InputSection>
+                    <InputSection className="mb-5 flex flex-col">
+                        <label
+                            className="form-label mb-2"
+                            htmlFor="userPasswordConfirm"
+                        >
+                            Confirm the entered Password
+                        </label>
+                        <input
+                            type="password"
+                            id="userPasswordConfirm"
+                            {...passwordConfirm}
+                        />
+                       <ButtonStyle type="submit">Register</ButtonStyle>
+                    </InputSection>
+                
+                  
+                    {/* <Link to='/login' className={`link-color-custom`}>Did you registerd already? Please Login!</Link> */}
+            </RegisterStyle>
+            
     );
 };
 
