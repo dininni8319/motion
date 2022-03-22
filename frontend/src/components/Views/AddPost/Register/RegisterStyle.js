@@ -12,6 +12,9 @@ export const RegisterStyle = styled.form`
        border-bottom: 2px solid ${props => props.theme.backgroundColor};
        outline: none
    }
+   label {
+      font-size: 14px;
+   }
    
 `
 

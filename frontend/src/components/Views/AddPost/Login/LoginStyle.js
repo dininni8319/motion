@@ -14,7 +14,11 @@ export const LoginStyled = styled.form`
         flex-direction: column;
         align-items: center;
     }
-
+    
+    .section-img {
+        width: 50%;
+        height: 50%;
+    }
     input {
        border-bottom: 2px solid ${props => props.theme.backgroundColor};
        outline: none
@@ -22,9 +26,13 @@ export const LoginStyled = styled.form`
     h1 {
        padding: 20px 0;
     }
+
+    label {
+      font-size: 14px;
+   }
 `
 export const InputSection = styled.section`
    
-   width: 60%;
+   width: 50%;
    margin-bottom: 20px;
 `

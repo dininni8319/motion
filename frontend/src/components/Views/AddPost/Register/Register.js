@@ -4,8 +4,8 @@ import { ConfigContext } from '../../../Context/Config';
 import { AuthContext } from '../../../Context/Auth';
 import useInput from './../../../../Hooks/useInput';
 import { RegisterStyle, ButtonStyle } from './RegisterStyle';
-import { InputSection } from '../Login/LoginStyle'
-
+import { InputSection } from '../Login/LoginStyle';
+import { Link } from 'react-router-dom';
 const Register = () => {
 
     const navigate = useNavigate();
@@ -66,7 +66,7 @@ const Register = () => {
     return (
             <RegisterStyle onSubmit={SignUp} className='form-custom'>
                     <InputSection className="mb-5 flex flex-col">
-                        <h1 className={`text-black font-bold text-2xl mb-2`}>Register</h1>
+                        <h1 className={`text-black font-bold text-2xl mb-2 mt-3`}>Register</h1>
                         <label className="form-label mb-2" htmlFor="userName">
                             Enter your First Name
                         </label>
@@ -85,12 +85,12 @@ const Register = () => {
                         <input type="email" id="userMail" {...email}/>
                     </InputSection>
                     <InputSection className="mb-5 flex flex-col">
-                        <label className="form-label mb-2" htmlFor="userPassword">
+                        <label className="form-label mb-2 font-light" htmlFor="userPassword">
                             Enter a new Password
                         </label>
                         <input type="password" id="userPassword" {...password}/>
                     </InputSection>
-                    <InputSection className="mb-5 flex flex-col">
+                    <InputSection className="flex flex-col">
                         <label
                             className="form-label mb-2"
                             htmlFor="userPasswordConfirm"
@@ -103,10 +103,9 @@ const Register = () => {
                             {...passwordConfirm}
                         />
                        <ButtonStyle type="submit">Register</ButtonStyle>
+                       <Link to='/login' className="pt-2 text-sm">Did you registerd already? Please Login!</Link>
                     </InputSection>
-                
-                  
-                    {/* <Link to='/login' className={`link-color-custom`}>Did you registerd already? Please Login!</Link> */}
+
             </RegisterStyle>
             
     );
