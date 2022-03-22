@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import  { NavbarStyle } from './NavbarStyle.js';
+import { NavbarStyle } from './NavbarStyle.js';
 
 const Navbar = () => {
     return (
-        <nav >
+        <nav>
             <NavbarStyle>
                 <li>
                     <Link to="/">Motion</Link>
                 </li>
-                
+
                 <li>
                     <Link to="/">Find Friends</Link>
                 </li>
@@ -16,7 +16,10 @@ const Navbar = () => {
                     <Link to="/add-post">Create a Post!</Link>
                 </li>
                 <li>
-                    <Link to="/sign">Sign In</Link>
+                    <Link to="/login">Login</Link>
+                </li>
+                <li>
+                    <Link to="/register">Register</Link>
                 </li>
             </NavbarStyle>
         </nav>

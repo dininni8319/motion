@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './App.css';
 
 const App = () => {
-    const [ posts, setPosts ] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/users/posts')

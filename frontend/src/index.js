@@ -5,23 +5,31 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AddPost from './components/Views/AddPost/AddPost';
-import Sign from './components/Views/Sign/Sign';
 import Navbar from './components/UI/Navbar/Navbar';
 import { GlobalStyle, Theme } from './components/GlobalStyle/style';
 import { ThemeProvider } from 'styled-components';
+import Register from './components/Views/AddPost/Register/Register';
+import Login from './components/Views/AddPost/Login/Login';
+import { ConfigProvider } from './components/Context/Config/index';
+import { AuthProvider } from './components/Context/Auth/index';
 
 ReactDOM.render(
     <React.StrictMode>
-        <ThemeProvider theme={Theme}>
-            <Router>
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<App />}></Route>
-                    <Route path="/add-post" element={<AddPost />}></Route>
-                    <Route path="/sign" element={<Sign />}></Route>
-                </Routes>
-            </Router>
-        </ThemeProvider>
+        <ConfigProvider>
+            <AuthProvider>
+                <ThemeProvider theme={Theme}>
+                    <Router>
+                        <Navbar />
+                        <Routes>
+                            <Route path="/" element={<App />}></Route>
+                            <Route path="/add-post" element={<AddPost />}></Route>
+                            <Route path="/login" element={<Login />}></Route>
+                            <Route path="/register" element={<Register />}></Route>
+                        </Routes>
+                    </Router>
+                </ThemeProvider>
+            </AuthProvider>
+        </ConfigProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
