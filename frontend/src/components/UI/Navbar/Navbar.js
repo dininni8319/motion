@@ -5,8 +5,7 @@ import { AuthContext } from './../../Context/Auth/index';
 
 const Navbar = () => {
 
-    const { logout } = useContext(AuthContext)
-    console.log(logout);
+    const { user, logout } = useContext(AuthContext)
 
     return (
         <nav>
@@ -22,13 +21,20 @@ const Navbar = () => {
                     <Link to="/add-post">Create a Post!</Link>
                 </li>
                 <li>
-                    <Link to="/login">Login</Link>
+                    {
+                        user === null && <Link to="/login">Login</Link>
+                    }
                 </li>
                 <li>
-                    <Link to="/register">Register</Link>
+                    {
+                        user === null && <Link to="/register">Register</Link>
+                    }  
                 </li>
                 <li>
-                    <button onClick={logout}>Logout</button>
+                    {
+                        user !== null && <button onClick={logout}>Logout</button>
+                    }
+                    
                 </li>
             </NavbarStyle>
         </nav>

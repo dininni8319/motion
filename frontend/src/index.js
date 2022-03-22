@@ -12,6 +12,7 @@ import Register from './components/Views/AddPost/Register/Register';
 import Login from './components/Views/AddPost/Login/Login';
 import { ConfigProvider } from './components/Context/Config/index';
 import { AuthProvider } from './components/Context/Auth/index';
+import ProtectedRoute from './components/utilities/ProtectedRoute'
 
 ReactDOM.render(
     <React.StrictMode>
@@ -22,7 +23,12 @@ ReactDOM.render(
                         <Navbar />
                         <Routes>
                             <Route path="/" element={<App />}></Route>
-                            <Route path="/add-post" element={<AddPost />}></Route>
+                            
+                            <Route path="/add-post" element={
+                                <ProtectedRoute>
+                                    <AddPost />
+                                </ProtectedRoute>
+                            }></Route>
                             <Route path="/login" element={<Login />}></Route>
                             <Route path="/register" element={<Register />}></Route>
                         </Routes>
