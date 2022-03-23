@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AddPost from './components/Views/AddPost/AddPost';
-import Navbar from './components/UI/Navbar/Navbar';
 import { GlobalStyle, Theme } from './components/GlobalStyle/style';
 import { ThemeProvider } from 'styled-components';
 import Register from './components/Views/AddPost/Register/Register';
@@ -20,7 +19,7 @@ ReactDOM.render(
             <AuthProvider>
                 <ThemeProvider theme={Theme}>
                     <Router>
-                        <Navbar />
+                        
                         <Routes>
                             <Route path="/" element={<App />}></Route>
                             

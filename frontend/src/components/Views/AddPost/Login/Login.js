@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Context/Auth/index';
 import { LoginStyled, InputSection } from './LoginStyle';
 import { ButtonStyle } from '../Register/RegisterStyle';
 import { Link } from 'react-router-dom';
-import womenPhoto from './../../../assets/women.jpeg';
+import lakePhoto from './../../../assets/maldives.jpeg';
 
 const Login = () => {
     
@@ -36,11 +36,13 @@ const Login = () => {
     return (
        <LoginStyled onSubmit={handleLogin}> 
             <section className="section-img">
-                <img src={womenPhoto} alt="" />
+                   <h2>Welcome to Paradise</h2>
+                  <img src={lakePhoto} alt="" />
+        
             </section>
             <section className='row-form mt-12'>
                 <InputSection className="mb-5 flex flex-col">
-                    <h1 className={`text-black font-bold text-2xl mb-2`}>Login</h1>
+                    <h1 className={`text-black font-medium text-3xl mb-2`}>Login</h1>
                     <label htmlFor="">Email</label>
                     <input type="email" {...email}/>
                 </InputSection>
@@ -50,8 +52,6 @@ const Login = () => {
                     <ButtonStyle type='submit'>Submit</ButtonStyle>
                     <Link to='/register' className="pt-3 text-sm">Did you registerd already? Please Login!</Link>
                 </InputSection>
-                
-               
             </section>
        </LoginStyled>
     )

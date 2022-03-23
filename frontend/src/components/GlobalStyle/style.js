@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300;1,400&family=Roboto+Condensed&family=Roboto:wght@400;500&display=swap');
     
-    * {
+    html {
         margin: 0;
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
@@ -29,14 +29,14 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Theme = {
     //Colors
-    backgroundColor: '#f2f2f2',
+    backgroundColor: 'rgba(255,229,236, 0.3)',
     textWhiteColor: 'white',
     borderColor: '#FCEADE',
     buttoncolor: '#A56FF8',
     greyColor: '#c1c1c1',
     pinkColor: '#586BA4',
     whiteColor: '#fff',
-    blueColor: '#66d6ef',
+    blueColor: '#8338ec',
     blueLightColor: '#a3e6f5',
     // pinkColor: '#ef475b',
 

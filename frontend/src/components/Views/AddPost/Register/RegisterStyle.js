@@ -4,7 +4,8 @@ export const RegisterStyle = styled.form`
    
    width: 100vw;
    display: flex;
-   margin-top: 20px;
+   padding: 0%;
+   margin: 0%;
    flex-direction: column;
    align-items: center;
     
@@ -14,8 +15,7 @@ export const RegisterStyle = styled.form`
    }
    label {
       font-size: 14px;
-   }
-   
+   }  
 `
 
 export const ButtonStyle = styled.button`

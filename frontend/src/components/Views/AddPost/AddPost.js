@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router';
+import Navbar from '../../UI/Navbar/Navbar';
 
 const AddPost = () => {
     const navigate = useNavigate();
@@ -26,22 +27,27 @@ const AddPost = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="p-5 d-flex flex-column">
-            <div className="p-5 d-flex flex-column">
-                <label htmlFor="">Content</label>
-                <input
-                    type="text"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                />
-            </div>
-            <div className="p-5 d-flex flex-column">
-                <label htmlFor="">Image</label>
-                <input type="file" />
-            </div>
-            <Link to="/">Go back!</Link>
-            <button type="submit">Submit</button>
-        </form>
+        <>
+        
+            <Navbar />
+            <form onSubmit={handleSubmit} className="p-5 d-flex flex-column">
+                <div className="p-5 d-flex flex-column">
+                    <label htmlFor="">Content</label>
+                    <input
+                        type="text"
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                    />
+                </div>
+                <div className="p-5 d-flex flex-column">
+                    <label htmlFor="">Image</label>
+                    <input type="file" />
+                </div>
+                <Link to="/">Go back!</Link>
+                <button type="submit">Submit</button>
+            </form>
+
+        </>
     );
 };
 
