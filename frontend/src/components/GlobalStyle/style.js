@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Theme = {
     //Colors
-    backgroundColor: 'rgba(255,229,236, 0.3)',
+    backgroundColor: 'rgb(243, 229, 171, 0.3)',
     textWhiteColor: 'white',
     borderColor: '#FCEADE',
     buttoncolor: '#A56FF8',

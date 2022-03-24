@@ -41,21 +41,37 @@ export const LoginStyled = styled.form`
    
       input {
          border-bottom: 2px solid ${props => props.theme.backgroundColor};
-         outline: none
-
+         outline: none;
+         padding: 5px;
       }
 
       h1 {
          padding: 20px 0;
       }
       
-      h2 {
-         font-size: 35px;
-         font-weight: 500;
+      h2, p, .icon-custom-style {
          position: absolute;
-         color: rgba(255, 255, 255, 0.8);
-         top: 20%;
          left: 15%;
+         color: rgba(255, 255, 255, 0.8);
+         padding: 0 5px;
+   
+      }
+      
+      h2 {
+         font-size: 30px;
+         font-weight: 500;
+         top: 40%;
+      }
+
+      p {
+         top: 45%;
+         font-size: small
+      }
+      
+      .icon-custom-style {
+         top: 30%;
+         left: 28%;
+         transform: rotate(-5deg);
       }
 
       label {

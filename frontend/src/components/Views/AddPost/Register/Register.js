@@ -66,7 +66,7 @@ const Register = () => {
     return (
             <RegisterStyle onSubmit={SignUp} className='form-custom'>
                     <InputSection className="mb-5 flex flex-col">
-                        <h1 className={`text-black font-bold text-2xl mb-2 mt-3`}>Register</h1>
+                        <h1 className={`text-black font-medium text-3xl mb-5 mt-12`}>Register</h1>
                         <label className="form-label mb-2" htmlFor="userName">
                             Enter your First Name
                         </label>
@@ -103,7 +103,7 @@ const Register = () => {
                             {...passwordConfirm}
                         />
                        <ButtonStyle type="submit">Register</ButtonStyle>
-                       <Link to='/login' className="pt-2 text-sm">Did you registerd already? Please Login!</Link>
+                       <Link to='/login' className="pt-3 text-sm">Did you registerd already? Please Login!</Link>
                     </InputSection>
 
             </RegisterStyle>
