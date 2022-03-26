@@ -153,6 +153,26 @@ class AuthController extends Controller
         ], 200);
 
     }
+
+    public function getAllUsers() {
+        $users = User::all();
+
+        $message = 'all the users';
+        if (!$users) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'users not found'
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => $message,
+            'data' => $users
+        ]);
+    }
+    
     // public function forgotPassword(Request $request){
 
     //     $validator = Validator::make($request->all(), [

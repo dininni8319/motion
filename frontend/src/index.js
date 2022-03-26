@@ -1,17 +1,24 @@
 import React from 'react';
+// react-routes 
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import ProtectedRoute from './components/utilities/ProtectedRoute';
+
+// Views
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Register from './components/Views/Register/Register';
+import Login from './components/Views/Login/Login';
 import AddPost from './components/Views/AddPost/AddPost';
+import UserDetailPage from './components/Views/UserDetaiPage/UserDetailPage'
+// Style 
 import { GlobalStyle, Theme } from './components/GlobalStyle/style';
 import { ThemeProvider } from 'styled-components';
-import Register from './components/Views/AddPost/Register/Register';
-import Login from './components/Views/AddPost/Login/Login';
+
+// Contexts
 import { ConfigProvider } from './components/Context/Config/index';
 import { AuthProvider } from './components/Context/Auth/index';
-import ProtectedRoute from './components/utilities/ProtectedRoute'
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -19,17 +26,30 @@ ReactDOM.render(
             <AuthProvider>
                 <ThemeProvider theme={Theme}>
                     <Router>
-                        
                         <Routes>
                             <Route path="/" element={<App />}></Route>
-                            
-                            <Route path="/add-post" element={
-                                <ProtectedRoute>
-                                    <AddPost />
-                                </ProtectedRoute>
-                            }></Route>
+
+                            <Route
+                                path="/add-post"
+                                element={
+                                    <ProtectedRoute>
+                                        <AddPost />
+                                    </ProtectedRoute>
+                                }
+                            ></Route>
+                            <Route
+                                path="/users-detail-page/:slug"
+                                element={
+                                    <ProtectedRoute>
+                                        <UserDetailPage />
+                                    </ProtectedRoute>
+                                }
+                            ></Route>
                             <Route path="/login" element={<Login />}></Route>
-                            <Route path="/register" element={<Register />}></Route>
+                            <Route
+                                path="/register"
+                                element={<Register />}
+                            ></Route>
                         </Routes>
                     </Router>
                 </ThemeProvider>

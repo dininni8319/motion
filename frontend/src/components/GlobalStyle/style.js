@@ -10,11 +10,11 @@ export const GlobalStyle = createGlobalStyle`
         font-family: Arial, Helvetica, sans-serif;
         box-sizing: border-box;
         font-weight: 400;
+        background-color: rgb(243, 229, 171, 0.3)
     }
 
     a {
         text-decoration: none;
-        color: red;
     }
     
     ul{
@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Theme = {
     //Colors
-    backgroundColor: 'rgb(243, 229, 171, 0.3)',
+    backgroundColor: '#F2F2F2',
     textWhiteColor: 'white',
     borderColor: '#FCEADE',
     buttoncolor: '#A56FF8',

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/UI/Navbar/Navbar'
+import Navbar from './components/UI/Navbar/Navbar';
+
 const App = () => {
     const [posts, setPosts] = useState([]);
 
@@ -12,10 +13,9 @@ const App = () => {
     }, []);
 
     return (
-        <>  
+        <>
             <Navbar />
             <section className="App d-flex flex-column align-items-center justify-content-center min-vh-100">
-            
                 <h1 className="text-3xl font-bold underline bg-purple-100">
                     All Post
                 </h1>

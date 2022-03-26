@@ -4,8 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from './../../Context/Auth/index';
 
 const Navbar = () => {
-
-    const { user, logout } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext);
 
     return (
         <nav>
@@ -20,21 +19,10 @@ const Navbar = () => {
                 <li>
                     <Link to="/add-post">Create a Post!</Link>
                 </li>
+                <li>{user === null && <Link to="/login">Login</Link>}</li>
+                <li>{user === null && <Link to="/register">Register</Link>}</li>
                 <li>
-                    {
-                        user === null && <Link to="/login">Login</Link>
-                    }
-                </li>
-                <li>
-                    {
-                        user === null && <Link to="/register">Register</Link>
-                    }  
-                </li>
-                <li>
-                    {
-                        user !== null && <button onClick={logout}>Logout</button>
-                    }
-                    
+                    {user !== null && <button onClick={logout}>Logout</button>}
                 </li>
             </NavbarStyle>
         </nav>

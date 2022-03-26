@@ -1,11 +1,21 @@
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import Navbar from '../../UI/Navbar/Navbar';
+import SideBar from '../../UI/SideBar/SideBar';
+import { AddPostStyle, FormAddPostStyle } from './AddPostStyle';
+import { ButtonStyle } from '../Register/RegisterStyle';
 
 const AddPost = () => {
     const navigate = useNavigate();
     const [content, setContent] = useState('');
+    const [ allUsers, setAllUsers ] = useState([])
+    
+    useEffect(() => {
+        fetch('http://localhost:8000/api/users/get-all-users')
+         .then(resp => resp.json())
+         .then(data => setAllUsers(data.data))
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,27 +37,34 @@ const AddPost = () => {
     };
 
     return (
-        <>
-        
+        <AddPostStyle>
             <Navbar />
-            <form onSubmit={handleSubmit} className="p-5 d-flex flex-column">
-                <div className="p-5 d-flex flex-column">
+            <SideBar 
+                allUsers={allUsers}
+            />
+
+            <FormAddPostStyle onSubmit={handleSubmit}>
+                <section className="p-2 d-flex flex-column">
                     <label htmlFor="">Content</label>
                     <input
                         type="text"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
+                        className="input-create-post"
                     />
-                </div>
-                <div className="p-5 d-flex flex-column">
+                </section>
+                <section className="p-2 d-flex flex-column">
                     <label htmlFor="">Image</label>
                     <input type="file" />
-                </div>
-                <Link to="/">Go back!</Link>
-                <button type="submit">Submit</button>
-            </form>
-
-        </>
+                </section>
+                <section className="p-2 d-flex flex-column">
+                    <ButtonStyle type="submit" className="btn-create-post">
+                        Submit
+                    </ButtonStyle>
+                    <Link to="/">Go back!</Link>
+                </section>
+            </FormAddPostStyle>
+        </AddPostStyle>
     );
 };
 

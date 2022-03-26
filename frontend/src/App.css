@@ -8,4 +8,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.input-create-post {
+    border-bottom: 1px solid gray;
+    outline: none;
+}
 
+/* .btn-create-post {
+    background-color: ${props => };
+} */

@@ -31,5 +31,6 @@ Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
     
     Route::get('/posts', [PublicController::class, 'index'])->name('index');
     Route::post('/add-post', [PublicController::class, 'storePost'])->name('addPost'); 
+    Route::get('/get-all-users', [AuthController::class, 'getAllUsers'])->name('get-users'); 
 });
 
