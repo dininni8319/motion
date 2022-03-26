@@ -7,7 +7,6 @@ const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
 
     return (
-        <nav>
             <NavbarStyle>
                 <li>
                     <Link to="/">Motion</Link>
@@ -25,7 +24,6 @@ const Navbar = () => {
                     {user !== null && <button onClick={logout}>Logout</button>}
                 </li>
             </NavbarStyle>
-        </nav>
     );
 };
 

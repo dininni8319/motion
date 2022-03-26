@@ -1,11 +1,30 @@
 import styled from 'styled-components';
 
 export const SideBarStyle = styled.section`
-    min-height: 100vh;
-    width: 15vw;
-    border: 1px solid blue;
+    height: 7vh;
+    width: 100vw;
     background-color: white;
-    span {
-        color: black;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid ${props => props.theme.backgroundColor};
+    
+    .user-profile-initials {
+        color: ${props => props.theme.textWhiteColor};
+        background-color: ${props => props.theme.buttoncolor};
+        border-radius: 50%;
+        font-size: small;
     }
 `;
+
+export const SectionUserProfile = styled.section`
+    width: 5rem;
+    display: flex;
+    margin: 2px;
+    
+    span {
+        font-weight:300;
+    }
+
+
+`

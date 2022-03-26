@@ -5,7 +5,7 @@ import Navbar from './components/UI/Navbar/Navbar';
 
 const App = () => {
     const [posts, setPosts] = useState([]);
-
+    
     useEffect(() => {
         fetch('http://localhost:8000/api/users/posts')
             .then((resp) => resp.json())
