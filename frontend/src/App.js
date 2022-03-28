@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/UI/Navbar/Navbar';
+import { ConfigContext } from './components/Context/Config/index'
 
 const App = () => {
     const [posts, setPosts] = useState([]);
     
+    const { url } = useContext(ConfigContext)
+    
+    console.log(url);
+    console.log(posts, 'testing the posts');
     useEffect(() => {
         fetch('http://localhost:8000/api/users/posts')
             .then((resp) => resp.json())
@@ -25,6 +30,7 @@ const App = () => {
                             <section key={el.id}>
                                 <h3>{el.name}</h3>
                                 <p>{el.content}</p>
+                                <img src={`http://localhost:8000/${el.img}`} alt={el.content} width='100px' height="100px"/>
                             </section>
                         );
                     })}

@@ -11,7 +11,7 @@ class PublicController extends Controller
     public function index() {
 
         $posts = Post::all();
-
+        
         return response()->json([
             'status' => 200,
             'posts' => $posts
@@ -24,7 +24,16 @@ class PublicController extends Controller
         $post->name = $request->name;
         $post->email = $request->email;
         $post->content = $request->content;
-        // $post = $request->file('img')->store('public/img');
+        
+        if ($request->hasFile('img')) {
+
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() .".".$extension;
+            $file->move('assets/img/', $filename);
+            $post->img = 'assets/img/'.$filename;
+        }
+        
         $post->save();
 
         return response()->json([
