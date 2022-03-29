@@ -60,7 +60,7 @@ const Login = () => {
                     <input type="password" {...password} />
                     <ButtonStyle type="submit">Submit</ButtonStyle>
                     <Link to="/register" className="pt-3 text-sm">
-                        Did you registerd already? Please Login!
+                        Did you already register? Please Login!
                     </Link>
                 </InputSection>
             </section>

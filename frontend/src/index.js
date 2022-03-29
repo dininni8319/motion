@@ -18,12 +18,14 @@ import { ThemeProvider } from 'styled-components';
 // Contexts
 import { ConfigProvider } from './components/Context/Config/index';
 import { AuthProvider } from './components/Context/Auth/index';
+import { PostsProvider } from './components/Context/PostsContext/index'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
         <ConfigProvider>
             <AuthProvider>
+                <PostsProvider>
                 <ThemeProvider theme={Theme}>
                     <Router>
                         <Routes>
@@ -53,6 +55,7 @@ ReactDOM.render(
                         </Routes>
                     </Router>
                 </ThemeProvider>
+                </PostsProvider>
             </AuthProvider>
         </ConfigProvider>
     </React.StrictMode>,
