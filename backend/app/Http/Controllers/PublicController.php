@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
-    public function index() {
 
+    public function index() {
+        
         $posts = Post::all();
         
         return response()->json([
@@ -19,7 +20,9 @@ class PublicController extends Controller
     }
 
     public function storePost(Request $request) {
-       
+        // $user = Auth::guard('api')->id();
+        // var_dump($user);
+
         $post = new Post();
         $post->name = $request->name;
         $post->email = $request->email;

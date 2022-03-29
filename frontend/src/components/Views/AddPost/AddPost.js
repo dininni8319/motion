@@ -40,7 +40,12 @@ const AddPost = () => {
         formatData.append('content', content)
         
         axios.post('http://localhost:8000/api/users/add-post', formatData)
-        .then(resp => console.log(resp, 'testing the resp'))
+        .then(resp => {
+            if (resp.status === 200) {
+                alert('Your message is been delivered')
+                navigate('/')
+            }
+        }).catch((e) => console.log(e))
     };
 
     return (
