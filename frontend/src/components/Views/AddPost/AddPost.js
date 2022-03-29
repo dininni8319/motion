@@ -6,7 +6,7 @@ import SideBar from '../../UI/SideBar/SideBar';
 import Card from '../../UI/Card/Card';
 import { AuthContext } from './../../Context/Auth/index'
 import { PostsContext } from './../../Context/PostsContext/index'
-import { AddPostStyle, FormAddPostStyle, ButtonAddPostStyle } from './AddPostStyle';
+import { AddPostStyle, FormAddPostStyle, ButtonAddPostStyle, InputSection } from './AddPostStyle';
 import axios from 'axios';
 
 const AddPost = () => {
@@ -60,18 +60,20 @@ const AddPost = () => {
 
             <FormAddPostStyle onSubmit={handleSubmit}>
              
-                    <ButtonAddPostStyle type="submit" className="btn-create-post">
-                        Submit
-                    </ButtonAddPostStyle>
-                    {/* <Link to="/">Go back!</Link> */}
-                    
+                    <InputSection>
+                        <ButtonAddPostStyle type="submit" className="btn-create-post">
+                            Submit
+                        </ButtonAddPostStyle>
+                    </InputSection>
+                    <InputSection>
                         <input 
                             type="file" 
                             onChange={(e) => imageHandler(e.target.files)}
-                            className='input-file'
+                            // className='input-file'
                             />  
+                    </InputSection>
 
-                   <div>
+                   <InputSection>
                         <input
                             type="text"
                             value={content}
@@ -82,7 +84,7 @@ const AddPost = () => {
                             {
                                 error && <p className='error'>{error}</p>
                             }
-                    </div>
+                    </InputSection>
                
             </FormAddPostStyle>
             <Card 

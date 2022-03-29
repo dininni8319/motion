@@ -6,8 +6,8 @@ export const AddPostStyle = styled.section`
 
     .btn-create-post {
         background-color: ${(props) => props.theme.buttoncolor};
-        /* margin-bottom: 20px; */
     }
+
 `;
 
 export const FormAddPostStyle = styled.form`
@@ -26,8 +26,29 @@ export const FormAddPostStyle = styled.form`
       padding: 10px 20px;
     }
 
+    @media screen and (max-width: 700px){
+        .input-create-post {
+           width: 100%;
+           margin-bottom: 10px
+        }
+
+        min-height: 20vh;
+        flex-direction: column-reverse;
+        
+        .input-file {
+            width: 100%
+        }
+    }
+`;
+
+export const InputSection = styled.section`
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+      width: 100%;
 
 `;
+
 
 export const ButtonAddPostStyle = styled.section`
     color: ${(props) => props.theme.textWhiteColor};
