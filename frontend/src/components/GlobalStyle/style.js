@@ -21,10 +21,6 @@ export const GlobalStyle = createGlobalStyle`
         list-style:none;
     }
 
-    .error{
-        color:red;
-    } 
-
 `;
 
 export const Theme = {

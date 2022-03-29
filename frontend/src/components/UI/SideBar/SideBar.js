@@ -1,8 +1,15 @@
 import { SideBarStyle } from './SideBarStyle';
 import { Link } from 'react-router-dom';
-import { SectionUserProfile } from './SideBarStyle'
-const SideBar = ({ allUsers }) => {
+import { SectionUserProfile } from './SideBarStyle';
 
+const SideBar = ({ allUsers }) => {
+ 
+    let innerWidth = window.innerWidth
+    console.log(innerWidth, 'testiamo');
+
+    if (innerWidth < 700) {
+        allUsers?.slice(0,8)
+    }
     const sliceLetter = str => {
        return str.split('').slice(0,1)
     }
@@ -10,7 +17,7 @@ const SideBar = ({ allUsers }) => {
 
         <SideBarStyle>
             {
-                allUsers?.map( el => {
+               allUsers?.slice(0,8).map( el => {
                    return (
                         <SectionUserProfile key={el.id}>
                             <Link to={`/users-detail-page/${el.id}`}>

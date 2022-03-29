@@ -5,6 +5,7 @@ export const SideBarStyle = styled.section`
     width: 100vw;
     background-color: white;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     padding: 0 10px;
     border-bottom: 1px solid ${props => props.theme.backgroundColor};
@@ -15,6 +16,11 @@ export const SideBarStyle = styled.section`
         border-radius: 50%;
         font-size: small;
     }
+
+    /* @media screen and (max-width: 700px){
+        min-height: 100vh;
+        width: 10vw;
+    } */
 `;
 
 export const SectionUserProfile = styled.section`

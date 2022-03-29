@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware("api")->except('index');
+    // }
 
     public function index() {
-        
+    
         $posts = Post::all();
         
         return response()->json([
