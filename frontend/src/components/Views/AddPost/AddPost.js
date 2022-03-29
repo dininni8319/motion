@@ -18,8 +18,8 @@ const AddPost = () => {
 
     const navigate = useNavigate();
     const [ content, setContent ] = useState('');
-
  
+    console.log(typeof content);
     const [ image, setImage ] = useState([])
     const [ allUsers, setAllUsers ] = useState([])
 
@@ -38,9 +38,14 @@ const AddPost = () => {
         
         const formatData = new FormData()
      
-        formatData.append('content', content)
         
-        formatData.append('img', image)
+        if (content === '') {
+            setError(true)
+
+        } else {
+            formatData.append('content', content)
+            formatData.append('img', image)  
+        }
         
         axios.post('http://localhost:8000/api/users/add-post', formatData)
         .then(resp => {
