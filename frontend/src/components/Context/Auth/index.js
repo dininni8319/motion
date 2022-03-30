@@ -6,9 +6,8 @@ export const AuthContext = createContext();
 export function AuthProvider(props) {
     const initialUser = localStorage.getItem('user');
 
-    const [ user, setUser ] = useState(JSON.parse(initialUser));
+    const [user, setUser] = useState(JSON.parse(initialUser));
     const { url } = useContext(ConfigContext);
-
     const login = (first_name, last_name, token, id) => {
         const obj = {
             first_name: first_name,
@@ -21,6 +20,7 @@ export function AuthProvider(props) {
         localStorage.setItem('user', JSON.stringify(obj));
     };
 
+    // console.log(user.token);
     const logout = () => {
         fetch(`${url.backend}/api/users/logout`, {
             method: 'POST',

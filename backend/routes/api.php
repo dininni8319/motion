@@ -24,6 +24,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
     Route::post('/register', [AuthController::class, 'register'])->name('register.user');
     Route::post('/login', [AuthController::class, 'login'])->name('login.user');
     Route::post('/count', [AuthController::class, 'countUsers'])->name('count.user');
+    Route::get('/get-all-users', [AuthController::class, 'getAllUsers'])->name('get-users'); 
 
     //Private Route
     Route::get('/view-profile', [AuthController::class, 'viewProfile'])->name('profile.user');
@@ -31,6 +32,5 @@ Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
     
     Route::get('/posts', [PublicController::class, 'index'])->name('index');
     Route::post('/add-post', [PublicController::class, 'storePost'])->name('addPost'); 
-    Route::get('/get-all-users', [AuthController::class, 'getAllUsers'])->name('get-users'); 
 });
 

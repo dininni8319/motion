@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Closure;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware("api")->except('index');
-    // }
+    public function __construct(){
+
+        $this->middleware(function ($request,Closure $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
+    }
 
     public function index() {
     
@@ -23,8 +28,6 @@ class PublicController extends Controller
     }
 
     public function storePost(Request $request) {
-        // $user = Auth::guard('api')->id();
-        // var_dump($user);
 
         $post = new Post();
         $post->name = $request->name;

@@ -1,5 +1,5 @@
 import React from 'react';
-// react-routes 
+// react-routes
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
@@ -10,15 +10,15 @@ import App from './App';
 import Register from './components/Views/Register/Register';
 import Login from './components/Views/Login/Login';
 import AddPost from './components/Views/AddPost/AddPost';
-import UserDetailPage from './components/Views/UserDetaiPage/UserDetailPage'
-// Style 
+import UserDetailPage from './components/Views/UserDetaiPage/UserDetailPage';
+// Style
 import { GlobalStyle, Theme } from './components/GlobalStyle/style';
 import { ThemeProvider } from 'styled-components';
 
 // Contexts
 import { ConfigProvider } from './components/Context/Config/index';
 import { AuthProvider } from './components/Context/Auth/index';
-import { PostsProvider } from './components/Context/PostsContext/index'
+import { PostsProvider } from './components/Context/PostsContext/index';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -26,35 +26,38 @@ ReactDOM.render(
         <ConfigProvider>
             <AuthProvider>
                 <PostsProvider>
-                <ThemeProvider theme={Theme}>
-                    <Router>
-                        <Routes>
-                            <Route path="/" element={<App />}></Route>
+                    <ThemeProvider theme={Theme}>
+                        <Router>
+                            <Routes>
+                                <Route path="/" element={<App />}></Route>
 
-                            <Route
-                                path="/add-post"
-                                element={
-                                    <ProtectedRoute>
-                                        <AddPost />
-                                    </ProtectedRoute>
-                                }
-                            ></Route>
-                            <Route
-                                path="/users-detail-page/:slug"
-                                element={
-                                    <ProtectedRoute>
-                                        <UserDetailPage />
-                                    </ProtectedRoute>
-                                }
-                            ></Route>
-                            <Route path="/login" element={<Login />}></Route>
-                            <Route
-                                path="/register"
-                                element={<Register />}
-                            ></Route>
-                        </Routes>
-                    </Router>
-                </ThemeProvider>
+                                <Route
+                                    path="/add-post"
+                                    element={
+                                        <ProtectedRoute>
+                                            <AddPost />
+                                        </ProtectedRoute>
+                                    }
+                                ></Route>
+                                <Route
+                                    path="/users-detail-page/:slug"
+                                    element={
+                                        <ProtectedRoute>
+                                            <UserDetailPage />
+                                        </ProtectedRoute>
+                                    }
+                                ></Route>
+                                <Route
+                                    path="/login"
+                                    element={<Login />}
+                                ></Route>
+                                <Route
+                                    path="/register"
+                                    element={<Register />}
+                                ></Route>
+                            </Routes>
+                        </Router>
+                    </ThemeProvider>
                 </PostsProvider>
             </AuthProvider>
         </ConfigProvider>

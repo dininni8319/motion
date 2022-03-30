@@ -11,9 +11,9 @@ export const NavbarStyle = styled.ul`
     color: ${(props) => props.theme.grayColor};
     font-size: 14px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    
-    li:first-child{
+
+    li:first-child {
         font-size: x-large;
-        font-weight: bolder
+        font-weight: bolder;
     }
 `;
