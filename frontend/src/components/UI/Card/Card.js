@@ -23,6 +23,7 @@ const Card = ({ posts }) => {
                             <span className="text-sm">
                                 {formatDate(el.created_at)}
                             </span>
+                            <strong className='px-3 py-2'>{el.name}</strong>
                             <img
                                 src={`http://localhost:8000/${el.img}`}
                                 alt={el.content}

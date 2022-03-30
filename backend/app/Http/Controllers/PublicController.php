@@ -9,16 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
-    public function __construct(){
+    // public function __construct(){
+    // alternativa 
+    //     // $this->middleware(function ($request,Closure $next) {
+    //     //     $this->user = Auth::user();
+    //     //     return $next($request);
+    //     // });
+    // }
 
-        $this->middleware(function ($request,Closure $next) {
-            $this->user = Auth::user();
-            return $next($request);
-        });
+    public function __construct(){
+        $this->middleware("auth:api", ["except" => ["index"] ] );
     }
 
     public function index() {
-    
+        
         $posts = Post::all();
         
         return response()->json([
@@ -29,8 +33,12 @@ class PublicController extends Controller
 
     public function storePost(Request $request) {
 
+        $user = Auth::guard('api')->user();
+        $first_n = $user->first_name;
+        $last_n = $user->last_name;
+        $name = $first_n .' '.$last_n;
         $post = new Post();
-        $post->name = $request->name;
+        $post->name = $name;
         $post->email = $request->email;
         $post->content = $request->content;
         

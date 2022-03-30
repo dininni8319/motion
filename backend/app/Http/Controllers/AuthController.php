@@ -100,7 +100,7 @@ class AuthController extends Controller
 
     public function logout(){
         $user = Auth::guard('api')->user(); // the user must be authenticated 
-        // var_dump($user);
+       
         if (!$user) {
 
             $responseMessage = 'Invalid Bearer Token';
@@ -128,7 +128,6 @@ class AuthController extends Controller
     
     public function viewProfile(){
         $user = Auth::guard('api')->user(); // the user must be authenticated 
-        // dd($user);
         if (!$user) {
 
             $responseMessage = 'Invalid Bearer Token';
