@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Closure;
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,5 +81,33 @@ class PublicController extends Controller
     public function destroy($id) {
         $post = Post::find($id);
         $post->delete();
+    }
+    
+    public function getAllComments() {
+        $comments = Comment::all();
+
+        return response()->json([
+            'status' => 200,
+            'comments' => $comments 
+        ]);
+    }
+
+    public function storeComment(Request $request, $id){
+        
+        $user = Auth::guard('api')->user();
+
+        $first_last_name = $user->first_name.' '.$user->last_name;
+        
+        $comment = Comment::create([
+            "comment" => $request->comment,
+            "name" => $first_last_name,
+            'post_id' => $id,
+        ]);
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Coment added successfully' 
+        ]);
+
     }
 }

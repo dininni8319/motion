@@ -1,6 +1,7 @@
 
 export function sliceLetter(str){
-    return str.split('').slice(0, 1);
+
+    return  str?.split('').slice(0, 1);
 };
 
 

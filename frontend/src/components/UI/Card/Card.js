@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { CardStyle, SectionPosts } from './CardStyle';
 
 const Card = ({ posts }) => {
+    
     const formatDate = (date) => {
         let time = new Date(date);
         let timeNow = new Date().getDay();
@@ -14,6 +15,7 @@ const Card = ({ posts }) => {
             hours < 10 ? '0' + hours : hours
         }:${minutes < 10 ? '0' + minutes : minutes}`;
     };
+
     return (
         <CardStyle className="App d-flex flex-column align-items-center justify-content-center min-vh-100">
             {posts &&

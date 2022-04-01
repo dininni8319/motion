@@ -32,5 +32,6 @@ Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
     
     Route::get('/posts', [PublicController::class, 'index'])->name('index');
     Route::post('/add-post', [PublicController::class, 'storePost'])->name('addPost'); 
+    Route::post('/add-comment/{post_id}', [PublicController::class, 'storeComment'])->name('addComment'); 
 });
 
