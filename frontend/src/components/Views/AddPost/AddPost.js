@@ -58,7 +58,7 @@ const AddPost = () => {
             .then((resp) => {
                 if (resp.status === 200) {
                     alert('Your message is been delivered');
-                    navigate('/');
+                    setContent('')
                 }
             })
             .catch((e) => setError(e));

@@ -29,7 +29,7 @@ const FormComment = ({ id }) => {
 
             if (resp.status === 200) {
                 alert('Your message is been delivered');
-                navigate('/');
+                comment.setValue('')
             } else {
                 console.log(resp);
             }

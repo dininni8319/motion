@@ -31,6 +31,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout.user');
     
     Route::get('/posts', [PublicController::class, 'index'])->name('index');
+    Route::get('/get-comments', [PublicController::class, 'getAllComments'])->name('getAllComments');
     Route::post('/add-post', [PublicController::class, 'storePost'])->name('addPost'); 
     Route::post('/add-comment/{post_id}', [PublicController::class, 'storeComment'])->name('addComment'); 
 });
