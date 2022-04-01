@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CardStyle, SectionPosts } from './CardStyle';
+import FormComment from './../FormComment/FormComment';
 
 const Card = ({ posts }) => {
     
@@ -21,20 +22,24 @@ const Card = ({ posts }) => {
             {posts &&
                 [...posts].reverse().map((el) => {
                     return (
-                        <SectionPosts key={el.id}>
-                            <span className="text-sm">
-                                {formatDate(el.created_at)}
-                            </span>
-                            <strong className='px-3 py-2'>{el.name}</strong>
-                            <img
-                                src={`http://localhost:8000/${el.img}`}
-                                alt={el.content}
-                            />
-                            <p className="text-sm py-2">{el.content}</p>
-                        </SectionPosts>
+                        <>
+                            <SectionPosts key={el.id}>
+                                <span className="text-sm">
+                                    {formatDate(el.created_at)}
+                                </span>
+                                <strong className='px-3 py-2'>{el.name}</strong>
+                                <img
+                                    src={`http://localhost:8000/${el.img}`}
+                                    alt={el.content}
+                                />
+                                <p className="text-sm py-2">{el.content}</p>
+                            </SectionPosts>
+                            <SectionPosts>
+                                <FormComment id={el.id} />
+                            </SectionPosts>
+                        </>
                     );
                 })}
-            <Link to="/add-post">Add a post</Link>
         </CardStyle>
     );
 };

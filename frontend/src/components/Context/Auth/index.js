@@ -8,6 +8,7 @@ export function AuthProvider(props) {
 
     const [user, setUser] = useState(JSON.parse(initialUser));
     const { url } = useContext(ConfigContext);
+    
     const login = (first_name, last_name, token, id) => {
         const obj = {
             first_name: first_name,

@@ -23,7 +23,6 @@ const AddPost = () => {
     const navigate = useNavigate();
     const [content, setContent] = useState('');
 
-    console.log(typeof content);
     const [image, setImage] = useState([]);
     const [allUsers, setAllUsers] = useState([]);
 
@@ -83,7 +82,6 @@ const AddPost = () => {
                     <input
                         type="file"
                         onChange={(e) => imageHandler(e.target.files)}
-                        // className='input-file'
                     />
                 </InputSection>
 

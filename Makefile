@@ -8,7 +8,6 @@ help: ## serve for development
 	echo "Targets:"; \
 	fgrep -h '##' Makefile | awk -F'##|: ' '{printf "%40s %s\n", $$1, $$3}
 	' | fgrep -v fgrep';
-
 freshdb: ## reset db
 	@echo "Reset DB"
 	@cd backend && php artisan migrate:fresh && php artisan passport:install --force
@@ -17,6 +16,10 @@ dev: ## serve for development
 	@echo "strating Dev enviroment"
 	@cd frontend && npm start &
 	@cd backend && php artisan serve
+clearca: ## serve for development
+	@echo "strating Dev enviroment"
+	@cd backend && php artisan && php artisan cache:clear && php artisan config:cache && php artisan route:clear
+
 
 install: ## performs initial setup
 	@echo "Installing libraries"
