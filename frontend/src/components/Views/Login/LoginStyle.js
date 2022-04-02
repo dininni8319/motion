@@ -13,7 +13,6 @@ export const LoginStyled = styled.form`
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* background-color: ${(props) => props.theme.textWhiteColor}; */
     }
 
     .section-img {
@@ -79,7 +78,7 @@ export const LoginStyled = styled.form`
     }
 
     label {
-        font-size: 14px;
+        font-size: 12px;
     }
 `;
 export const InputSection = styled.section`

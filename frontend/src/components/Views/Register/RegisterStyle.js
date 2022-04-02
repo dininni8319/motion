@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const RegisterStyle = styled.form`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     padding: 0%;
     margin: 0%;
@@ -21,6 +21,7 @@ export const RegisterStyle = styled.form`
         outline: none;
         padding: 5px;
     }
+
     .section-img {
         position: relative;
         width: 60vw;
@@ -74,7 +75,7 @@ export const RegisterStyle = styled.form`
     }
 
     label {
-        font-size: 14px;
+        font-size: 12px;
     }
 `;
 

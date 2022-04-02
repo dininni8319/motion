@@ -70,10 +70,10 @@ const Register = () => {
     return (
         <RegisterStyle onSubmit={SignUp} className="form-custom">
             <SideHeader />
-            <section className="row-form mt-12">
-                <InputSection className="mb-5 flex flex-col">
+            <section className="row-form mt-5">
+                <InputSection className="mb-3 flex flex-col">
                     <h1
-                        className={`text-black font-medium text-3xl mb-5 mt-12`}
+                        className={`text-black font-medium text-3xl mb-3 mt-12`}
                     >
                         Register
                     </h1>
@@ -82,13 +82,13 @@ const Register = () => {
                     </label>
                     <input type="text" id="userName" {...first_name} />
                 </InputSection>
-                <InputSection className="mb-5 flex flex-col">
+                <InputSection className="mb-3 flex flex-col">
                     <label className="form-label mb-2" htmlFor="userName">
                         Enter your Last Name
                     </label>
                     <input type="text" id="userName" {...last_name} />
                 </InputSection>
-                <InputSection className="mb-5 flex flex-col">
+                <InputSection className="mb-3 flex flex-col">
                     <label className="form-label mb-2" htmlFor="userMail">
                         Enter your Email
                     </label>

@@ -12,10 +12,6 @@ const Navbar = () => {
             <li>
                 <Link to="/">Motion</Link>
             </li>
-
-            <li>
-                <Link to="/">Find Friends</Link>
-            </li>
             <li>
                 <Link to="/add-post">Create a Post!</Link>
             </li>

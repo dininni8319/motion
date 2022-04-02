@@ -44,7 +44,10 @@ const FormComment = ({ id }) => {
                 Send
             </button>
             <section>
-                <input type="text" {...comment}/>
+                <input type="text" {...comment} 
+                  className='comment-input'
+                  placeholder='Write a comment'
+                />
             </section>
 
       </FormCommentStyled>

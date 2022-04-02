@@ -34,7 +34,6 @@ export const Theme = {
     whiteColor: '#fff',
     blueColor: '#8338ec',
     blueLightColor: '#a3e6f5',
-    // pinkColor: '#ef475b',
 
     //Box-shadow
     boxShadow: 'none',
