@@ -6,7 +6,8 @@ import { ConfigContext } from '../../Context/Config';
 import { AuthContext } from '../../Context/Auth';
 
 const Card = ({ posts }) => {
-    const [ comments, setComments ] = useState(null)
+    const [ comments, setComments ] = useState(null);
+    const [ showComments, setShowComments ] = useState(false);
     const { url } = useContext(ConfigContext)
     const { user } = useContext(AuthContext)
     
@@ -31,6 +32,10 @@ const Card = ({ posts }) => {
         }:${minutes < 10 ? '0' + minutes : minutes}`;
     };
 
+    const handleShowComments = () => {
+        setShowComments(true);
+    }
+
     return (
         <CardStyle className="App d-flex flex-column align-items-center justify-content-center min-vh-100">
             {posts &&
@@ -38,37 +43,40 @@ const Card = ({ posts }) => {
                     return (
                         <>
                             <SectionPosts key={el.id}>
-                                <section className='flex items-center justify-between'>
-                                    <span className='text-base fw-bold'>{el.name}</span>
-                                    <span className="text-sm">
-                                        {formatDate(el.created_at)}
-                                    </span>
+                                <section className='flex flex-col'>
+                                    <section className='flex items-center justify-between'>
+                                        <span className="text-sm">
+                                            {formatDate(el.created_at)}
+                                        </span>
+                                        <span className='text-base fw-bold capitalize'>{el.name}</span>
+                                    </section>
+                                    <section>
+                                        <p className="text-sm py-1 capitalize">{el.content}</p>
+                                    </section>
                                 </section>
                                     <img
                                         src={`http://localhost:8000/${el.img}`}
                                         alt={el.content}
                                         />
-                                    <p className="text-sm py-2">{el.content}</p>
                                     <FormComment id={el.id} />
-                                    <section className='section-comments'>
+                                    <section className='section-comments' onClick={handleShowComments}>
+                                    
                                         {
-                                            comments?.map(element => {
-                                            return (
-                                                <section key={element.id} className='my-3 mx-1'>
-                                                    {
-                                                        el.id === element.post_id && <span className='comment-custom-style py-2 rounded text-sm'>{element.comment}</span>
-                                                    } 
-                                                </section>
-
-                                                
-                                            ) 
-                                            })
+                                            showComments ? comments?.map(element => {
+                                                return (
+                                                    <section key={element.id} className='my-3 mx-2 drop-shadow-md'>
+                                                        {
+                                                            el.id === element.post_id && <span className='comment-custom-style py-2 rounded text-sm'>{element.comment}</span>
+                                                        } 
+                                                    </section>
+        
+                                                ) 
+                                                }) : <span className='text-sm p-2'>...check the comments</span>
                                         }
 
                                     </section>
                             </SectionPosts>
-                            
-                            
+                              
                         </>
                     );
                 })}

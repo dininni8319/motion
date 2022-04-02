@@ -38,14 +38,14 @@ const FormComment = ({ id }) => {
     }
 
     return ( 
-      <FormCommentStyled onSubmit={handleSubmit} className='flex justify-between'> 
+      <FormCommentStyled onSubmit={handleSubmit} className='flex justify-between py-2'> 
        
             <button type="submit" className='btn-comment-form'>
                 Send
             </button>
             <section>
                 <input type="text" {...comment} 
-                  className='comment-input'
+                  className='comment-input px-5 py-1 rounded'
                   placeholder='Write a comment'
                 />
             </section>
