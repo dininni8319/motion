@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import Navbar from '../../UI/Navbar/Navbar';
 import SideBar from '../../UI/SideBar/SideBar';
 import Card from '../../UI/Card/Card';
+import FormPost from './../../UI/FormPost/FormPost';
 import { AuthContext } from './../../Context/Auth/index';
 import { PostsContext } from './../../Context/PostsContext/index';
 import {
@@ -12,6 +13,7 @@ import {
     ButtonAddPostStyle,
     InputSection
 } from './AddPostStyle';
+
 import axios from 'axios';
 
 const AddPost = () => {
@@ -69,33 +71,12 @@ const AddPost = () => {
             <Navbar />
             <SideBar allUsers={allUsers} />
 
-            <FormAddPostStyle onSubmit={handleSubmit}>
-                <InputSection>
-                    <ButtonAddPostStyle
-                        type="submit"
-                        className="btn-create-post"
-                    >
-                        Submit
-                    </ButtonAddPostStyle>
-                </InputSection>
-                <InputSection>
-                    <input
-                        type="file"
-                        onChange={(e) => imageHandler(e.target.files)}
-                    />
-                </InputSection>
-
-                <InputSection>
-                    <input
-                        type="text"
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                        className="input-create-post"
-                        placeholder="Write something about your life"
-                    />
-                    {error && <p className="error">{error}</p>}
-                </InputSection>
-            </FormAddPostStyle>
+            <FormPost 
+              imageHandler={imageHandler}
+              setContent={setContent}
+              content={content}
+              handleSubmit={handleSubmit}
+            />
             <Card posts={posts} />
         </AddPostStyle>
     );

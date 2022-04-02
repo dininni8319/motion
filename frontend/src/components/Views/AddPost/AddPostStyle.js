@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
 export const AddPostStyle = styled.section`
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-
-    .btn-create-post {
-        background-color: ${(props) => props.theme.buttoncolor};
-    }
+   
 `;
 
 export const FormAddPostStyle = styled.form`
@@ -19,10 +16,15 @@ export const FormAddPostStyle = styled.form`
     align-items: center;
     background-color: ${(props) => props.theme.backgroundColor};
 
+    .btn-create-post {
+        background-color: ${(props) => props.theme.buttoncolor};
+    }
+
     .input-create-post {
         outline: none;
         width: 20rem;
         padding: 10px 20px;
+        border-radius: 20px;
     }
 
     @media screen and (max-width: 700px) {

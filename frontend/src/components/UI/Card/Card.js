@@ -10,7 +10,6 @@ const Card = ({ posts }) => {
     const { url } = useContext(ConfigContext)
     const { user } = useContext(AuthContext)
     
-    console.log(comments, posts,  'comments');
     useEffect(() => {
         fetch(`${url.backend}/api/users/get-comments`, {
             headers: { Authorization: `Bearer ${user?.token}` }
@@ -39,33 +38,37 @@ const Card = ({ posts }) => {
                     return (
                         <>
                             <SectionPosts key={el.id}>
-                                <span className="text-sm">
-                                    {formatDate(el.created_at)}
-                                </span>
-                                <strong className='px-3 py-2'>{el.name}</strong>
-                                <img
-                                    src={`http://localhost:8000/${el.img}`}
-                                    alt={el.content}
-                                    />
-                                <p className="text-sm py-2">{el.content}</p>
-                                    {
-                                        comments?.map(element => {
-                                           return (
-                                            <>
-                                              {
-                                                el.id === element.post_id && <span>{element.comment}</span>
-                                              } 
-                                            
-                                            </>
+                                <section className='flex items-center justify-between'>
+                                    <span className='text-base fw-bold'>{el.name}</span>
+                                    <span className="text-sm">
+                                        {formatDate(el.created_at)}
+                                    </span>
+                                </section>
+                                    <img
+                                        src={`http://localhost:8000/${el.img}`}
+                                        alt={el.content}
+                                        />
+                                    <p className="text-sm py-2">{el.content}</p>
+                                    <FormComment id={el.id} />
+                                    <section className='section-comments'>
+                                        {
+                                            comments?.map(element => {
+                                            return (
+                                                <section key={element.id} className='my-3 mx-1'>
+                                                    {
+                                                        el.id === element.post_id && <span className='comment-custom-style py-2 rounded text-sm'>{element.comment}</span>
+                                                    } 
+                                                </section>
 
-                                            
-                                           ) 
-                                        })
-                                    }
+                                                
+                                            ) 
+                                            })
+                                        }
+
+                                    </section>
                             </SectionPosts>
-                            <SectionPosts>
-                                <FormComment id={el.id} />
-                            </SectionPosts>
+                            
+                            
                         </>
                     );
                 })}

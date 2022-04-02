@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import useInput from './../../../Hooks/useInput';
 import { AuthContext } from '../../Context/Auth';
 import { ConfigContext } from '../../Context/Config';
+import { FormCommentStyled } from './FormCommentStyle';
 import axios from 'axios';
 
 const FormComment = ({ id }) => {
@@ -37,14 +38,16 @@ const FormComment = ({ id }) => {
     }
 
     return ( 
-      <form onSubmit={handleSubmit}> 
-        <section>
-            <input type="text" {...comment}/>
-        </section>
-        <button type="submit">
-            Send
-        </button>
-      </form>
+      <FormCommentStyled onSubmit={handleSubmit} className='flex justify-between'> 
+       
+            <button type="submit" className='btn-comment-form'>
+                Send
+            </button>
+            <section>
+                <input type="text" {...comment}/>
+            </section>
+
+      </FormCommentStyled>
      );
 }
  
