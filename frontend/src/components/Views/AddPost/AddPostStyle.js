@@ -23,8 +23,7 @@ export const FormAddPostStyle = styled.form`
     .input-create-post {
         outline: none;
         width: 20rem;
-        padding: 10px 20px;
-        border-radius: 20px;
+        padding: 7px 20px;
     }
 
     @media screen and (max-width: 700px) {
@@ -52,8 +51,8 @@ export const InputSection = styled.section`
 export const ButtonAddPostStyle = styled.section`
     color: ${(props) => props.theme.textWhiteColor};
     background-color: ${(props) => props.theme.buttoncolor};
-    width: 15rem;
-    height: 2.5rem;
+    width: 12rem;
+    height: 2.3rem;
     border-radius: 20px;
     text-align: center;
     padding-top: 5px;

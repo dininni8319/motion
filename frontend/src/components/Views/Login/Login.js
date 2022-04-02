@@ -51,13 +51,13 @@ const Login = () => {
                     <label htmlFor="" className="mb-2">
                         Email
                     </label>
-                    <input type="email" {...email} />
+                    <input type="email" {...email} className="rounded"/>
                 </InputSection>
                 <InputSection className="mb-5 flex flex-col">
                     <label htmlFor="" className="mb-2">
                         Password
                     </label>
-                    <input type="password" {...password} />
+                    <input type="password" {...password} className="rounded"/>
                     <ButtonStyle type="submit">Submit</ButtonStyle>
                     <Link to="/register" className="pt-3 text-sm">
                         Did you already register? Please Login!

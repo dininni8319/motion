@@ -12,13 +12,17 @@ export const SectionPosts = styled.section`
     padding: 10px;
     min-height: 100px;
 
+    .card-header-custom {
+        margin-bottom: 5px;
+        border-bottom: 1px solid ${props => props.theme.backgroundColor};
+    }
     img {
         width: 100%;
         height: 80%;
         object-fit: cover;
     }
     .section-comments {
-        min-height: 10vh;
+        min-height: 5vh;
         border: 1px solid ${props => props.theme.backgroundColor};
     }
 

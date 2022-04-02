@@ -27,7 +27,7 @@ const FormPost = ({ handleSubmit, imageHandler, setContent, content, error }) =>
                     type="text"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
-                    className="input-create-post"
+                    className="input-create-post rounded"
                     placeholder="Write something about your life"
                 />
                 {error && <p className="error">{error}</p>}

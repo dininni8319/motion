@@ -80,19 +80,19 @@ const Register = () => {
                     <label className="form-label mb-2" htmlFor="userName">
                         Enter your First Name
                     </label>
-                    <input type="text" id="userName" {...first_name} />
+                    <input type="text" id="userName" {...first_name} className="rounded"/>
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
                     <label className="form-label mb-2" htmlFor="userName">
                         Enter your Last Name
                     </label>
-                    <input type="text" id="userName" {...last_name} />
+                    <input type="text" id="userName" {...last_name} className="rounded"/>
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
                     <label className="form-label mb-2" htmlFor="userMail">
                         Enter your Email
                     </label>
-                    <input type="email" id="userMail" {...email} />
+                    <input type="email" id="userMail" {...email} className="rounded"/>
                 </InputSection>
                 <InputSection className="mb-5 flex flex-col">
                     <label
@@ -101,7 +101,7 @@ const Register = () => {
                     >
                         Enter a new Password
                     </label>
-                    <input type="password" id="userPassword" {...password} />
+                    <input type="password" id="userPassword" {...password} className="rounded"/>
                 </InputSection>
                 <InputSection className="flex flex-col">
                     <label
@@ -114,6 +114,7 @@ const Register = () => {
                         type="password"
                         id="userPasswordConfirm"
                         {...passwordConfirm}
+                        className="rounded"
                     />
                     <ButtonStyle type="submit">Register</ButtonStyle>
                     <Link to="/login" className="pt-3 text-sm">

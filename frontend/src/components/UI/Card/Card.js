@@ -44,7 +44,7 @@ const Card = ({ posts }) => {
                         <>
                             <SectionPosts key={el.id}>
                                 <section className='flex flex-col'>
-                                    <section className='flex items-center justify-between'>
+                                    <section className='flex items-center justify-between card-header-custom'>
                                         <span className="text-sm">
                                             {formatDate(el.created_at)}
                                         </span>

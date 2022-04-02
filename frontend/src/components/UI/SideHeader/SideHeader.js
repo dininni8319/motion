@@ -7,7 +7,7 @@ const SideHeader = () => {
         <section className="section-img">
             <FontAwesomeIcon
                 icon={faCameraAlt}
-                className={`fa-5x mx-1 icon-custom-style`}
+                className={`fa-3x mx-1 icon-custom-style`}
             />
             <h2>Welcome to Paradise</h2>
             <p>
