@@ -4,6 +4,7 @@ import FormComment from './../FormComment/FormComment';
 import { useContext, useEffect, useState } from 'react';
 import { ConfigContext } from '../../Context/Config';
 import { AuthContext } from '../../Context/Auth';
+import { formatDate } from './../../utilities/functions';
 
 const Card = ({ posts }) => {
     const [ comments, setComments ] = useState(null);
@@ -18,19 +19,6 @@ const Card = ({ posts }) => {
             .then(resp => resp.json())
             .then(data => setComments(data.comments))
     }, [])
-
-    const formatDate = (date) => {
-        let time = new Date(date);
-        let timeNow = new Date().getDay();
-
-        let day = time.getDay();
-        let hours = time.getHours();
-
-        let minutes = time.getMinutes();
-        return ` ${day === timeNow ? 'Today' : 'Yesterday'} ${
-            hours < 10 ? '0' + hours : hours
-        }:${minutes < 10 ? '0' + minutes : minutes}`;
-    };
 
     const handleShowComments = () => {
         setShowComments(true);

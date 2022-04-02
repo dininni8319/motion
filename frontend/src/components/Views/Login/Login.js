@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/Auth/index';
 import { LoginStyled, InputSection } from './LoginStyle';
 import { ButtonStyle } from '../Register/RegisterStyle';
 import { Link } from 'react-router-dom';
-import SideHeader from '../../UI/SideHeader/SideHeader';
+import { SideHeader } from './../../UI/index';
 
 const Login = () => {
     const { url } = useContext(ConfigContext);

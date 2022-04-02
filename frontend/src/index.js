@@ -19,7 +19,6 @@ import { ThemeProvider } from 'styled-components';
 import { ConfigProvider } from './components/Context/Config/index';
 import { AuthProvider } from './components/Context/Auth/index';
 import { PostsProvider } from './components/Context/PostsContext/index';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>

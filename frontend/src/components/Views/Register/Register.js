@@ -6,7 +6,7 @@ import useInput from './../../../Hooks/useInput';
 import { RegisterStyle, ButtonStyle } from './RegisterStyle';
 import { InputSection } from '../Login/LoginStyle';
 import { Link } from 'react-router-dom';
-import SideHeader from '../../UI/SideHeader/SideHeader';
+import { SideHeader } from './../../UI/index';
 
 const Register = () => {
     const navigate = useNavigate();

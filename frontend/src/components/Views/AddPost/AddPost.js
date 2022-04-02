@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router';
-import Navbar from '../../UI/Navbar/Navbar';
-import SideBar from '../../UI/SideBar/SideBar';
-import Card from '../../UI/Card/Card';
+import { Card, SideBar, Navbar } from './../../UI/index';
 import FormPost from './../../UI/FormPost/FormPost';
 import { AuthContext } from './../../Context/Auth/index';
 import { PostsContext } from './../../Context/PostsContext/index';
