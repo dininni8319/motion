@@ -14,7 +14,6 @@ export const SideBarStyle = styled.section`
         color: ${(props) => props.theme.textWhiteColor};
         background-color: ${(props) => props.theme.buttoncolor};
         border-radius: 50%;
-        font-size: small;
     }
 
     /* @media screen and (max-width: 700px){

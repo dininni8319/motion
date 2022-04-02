@@ -16,7 +16,7 @@ const SideBar = ({ allUsers }) => {
                 return (
                     <SectionUserProfile key={el.id}>
                         <Link to={`/users-detail-page/${el.id}`}>
-                            <span className="p-2 font-thin uppercase user-profile-initials">
+                            <span className="p-2 font-thin text-sm uppercase user-profile-initials">
                                 {sliceLetter(el.first_name)}
                                 {sliceLetter(el.last_name)}
                             </span>

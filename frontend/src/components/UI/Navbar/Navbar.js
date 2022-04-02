@@ -18,7 +18,7 @@ const Navbar = () => {
             <li>{user === null && <Link to="/login">Login</Link>}</li>
             <li>{user === null && <Link to="/register">Register</Link>}</li>
             <li>{
-                user && <strong>{sliceLetter(user.first_name)} {user.last_name}</strong>
+                user && <strong className='capitalize'>{sliceLetter(user.first_name)} {user.last_name}</strong>
             }</li>
             <li>{user !== null && <button onClick={logout}>Logout</button>}</li>
         </NavbarStyle>
