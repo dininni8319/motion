@@ -33,3 +33,4 @@ Set up the project:
 - In the backend run: php artisan key:generate 
 - Run command: make freshdb
 
+To run the project run in the main folder: make dev

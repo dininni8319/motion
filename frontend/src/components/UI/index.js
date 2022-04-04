@@ -4,3 +4,5 @@ export { default as SideHeader } from './SideHeader/SideHeader';
 export { default as Navbar } from './Navbar/Navbar';
 export { default as FormPost } from './FormPost/FormPost';
 export { default as FormComment } from './FormComment/FormComment';
+export { default as Header } from './Header/Header';
+export { default as FormUserProfile } from './FormUserProfile/FormUserProfile';

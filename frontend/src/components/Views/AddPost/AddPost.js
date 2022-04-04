@@ -7,9 +7,6 @@ import { AuthContext } from './../../Context/Auth/index';
 import { PostsContext } from './../../Context/PostsContext/index';
 import {
     AddPostStyle,
-    FormAddPostStyle,
-    ButtonAddPostStyle,
-    InputSection
 } from './AddPostStyle';
 
 import axios from 'axios';
