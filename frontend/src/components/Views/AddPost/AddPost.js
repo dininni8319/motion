@@ -14,14 +14,15 @@ import axios from 'axios';
 const AddPost = () => {
     const { user } = useContext(AuthContext);
     const { posts } = useContext(PostsContext);
+
     const [error, setError] = useState(false);
+    const [content, setContent] = useState('');
+    const [image, setImage] = useState([]);
+    const [allUsers, setAllUsers] = useState([]);
+
     const token = user.token;
 
     const navigate = useNavigate();
-    const [content, setContent] = useState('');
-
-    const [image, setImage] = useState([]);
-    const [allUsers, setAllUsers] = useState([]);
 
     const imageHandler = (file) => {
         setImage(file[0]);

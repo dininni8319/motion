@@ -20,12 +20,12 @@ export const GlobalStyle = createGlobalStyle`
     ul{
         list-style:none;
     }
-
 `;
 
 export const Theme = {
     //Colors
     backgroundColor: '#F2F2F2',
+    boldColor: 'gold',
     textWhiteColor: 'white',
     borderColor: '#FCEADE',
     buttoncolor: '#A56FF8',

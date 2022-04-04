@@ -16,4 +16,9 @@ export const NavbarStyle = styled.ul`
         font-size: x-large;
         font-weight: bolder;
     }
+
+    .icon-custom-style {
+        color: ${props => props.theme.boldColor};
+        cursor: pointer;
+    }
 `;

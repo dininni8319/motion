@@ -1,4 +1,5 @@
 import React from 'react';
+
 // react-routes
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,6 +12,7 @@ import Register from './components/Views/Register/Register';
 import Login from './components/Views/Login/Login';
 import AddPost from './components/Views/AddPost/AddPost';
 import UserDetailPage from './components/Views/UserDetaiPage/UserDetailPage';
+
 // Style
 import { GlobalStyle, Theme } from './components/GlobalStyle/style';
 import { ThemeProvider } from 'styled-components';
@@ -28,10 +30,9 @@ ReactDOM.render(
                     <ThemeProvider theme={Theme}>
                         <Router>
                             <Routes>
-                                <Route path="/" element={<App />}></Route>
 
                                 <Route
-                                    path="/add-post"
+                                    path="/"
                                     element={
                                         <ProtectedRoute>
                                             <AddPost />

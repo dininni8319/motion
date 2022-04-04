@@ -36,7 +36,7 @@ const Login = () => {
                     data.token,
                     loginData.id
                 );
-                navigate('/add-post');
+                navigate('/');
             });
     };
 

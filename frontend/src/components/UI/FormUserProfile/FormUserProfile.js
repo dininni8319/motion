@@ -11,24 +11,24 @@ const FormUserProfile = () => {
                        Complete your profile
                     </h1>
                 <InputSection className="mb-3 flex flex-col">
-                    <label htmlFor="">Phone Number</label>
-                    <input type="text" />
+                    <label className="form-label mb-2" htmlFor="">Phone Number</label>
+                    <input type="text" className="rounded" />
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
-                    <label htmlFor="">Image</label>
-                    <input type="file" />
+                    <label className="form-label mb-2" htmlFor="">Image</label>
+                    <input type="file" className="rounded" />
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
-                    <label htmlFor="">Address</label>
-                    <input type="text" />
+                    <label className="form-label mb-2" htmlFor="">Address</label>
+                    <input type="text" className="rounded" />
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
-                    <label htmlFor="">Zip code</label>
-                    <input type="text" />
+                    <label className="form-label mb-2" htmlFor="">Zip code</label>
+                    <input type="text" className="rounded" />
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
-                    <label htmlFor="">City</label>
-                    <input type="text" />
+                    <label className="form-label mb-2" htmlFor="">City</label>
+                    <input type="text" className="rounded" />
                 </InputSection>
                 <InputSection className="mb-3 flex flex-col">
                     <textarea id="story" name="story"
