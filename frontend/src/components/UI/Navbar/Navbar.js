@@ -17,7 +17,9 @@ const Navbar = () => {
             <li>{user === null && <Link to="/login">Login</Link>}</li>
             <li>{user === null && <Link to="/register">Register</Link>}</li>
             <li>{
-                user && <span className='capitalize font-light'>{user.first_name} {user.last_name}</span>
+                user && <Link to={`/users-detail-page/${user.id}`}>
+                    <span className='capitalize font-light'>{user.first_name} {user.last_name}</span>
+                </Link> 
             }</li>
             <li>{user !== null && <FontAwesomeIcon
                 icon={faArrowRightFromBracket}

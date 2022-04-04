@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
+use App\Mail\PasswordReset;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -172,57 +176,57 @@ class AuthController extends Controller
         ]);
     }
     
-    // public function forgotPassword(Request $request){
+    public function forgotPassword(Request $request){
 
-    //     $validator = Validator::make($request->all(), [
-    //         'email' => 'required|email'
-    //     ]);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
 
-    //     if ($validator->fails()) {
-    //         return response()->json([
-    //             'success' => false,
-    //             'message' => $validator->messages()->toArray(),
-    //             // 'error' => 'errorore interno'
-    //         ], 500);
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $validator->messages()->toArray(),
+                // 'error' => 'errorore interno'
+            ], 500);
             
-    //     }
+        }
 
-    //     $email = $request->email;
+        $email = $request->email;
 
-    //     if (!User::where('email', $email)->first()) {
-    //         return response([
-    //             'message' => 'User doen\'t exists!'
-    //         ], 404);
-    //     }
+        if (!User::where('email', $email)->first()) {
+            return response([
+                'message' => 'User doen\'t exists!'
+            ], 404);
+        }
 
-    //     $token = Str::random(length: 10);
+        $token = Str::random(length: 10);
 
-    //     try {
-    //         DB::table(table: 'password_resets')->insert([
-    //             'email' => $email,
-    //             'token' => $token
-    //         ]);
+        try {
+            DB::table(table: 'password_resets')->insert([
+                'email' => $email,
+                'token' => $token
+            ]);
 
-    //         $message = 'Check your email';
-    //         // $data = [
-    //         //     'email' => $email,
-    //         //     'token' => $token
-    //         // ];
-    //         $data = DB::table(table: 'password_resets')->where('email', $email)->first();
-    //         $email = $data->email;
+            $message = 'Check your email';
+            // $data = [
+            //     'email' => $email,
+            //     'token' => $token
+            // ];
+            $data = DB::table(table: 'password_resets')->where('email', $email)->first();
+            $email = $data->email;
 
-    //         Mail::to($email)->send(new PasswordReset($data));
+            Mail::to($email)->send(new PasswordReset($data));
             
-    //         return response([
-    //             'message' => $message
-    //         ]);
+            return response([
+                'message' => $message
+            ]);
             
-    //     } catch (Exception $exception){
+        } catch (Exception $exception){
 
-    //         return response([
-    //             'message' => $exception->getMessage()
-    //         ], 400);
-    //     }
+            return response([
+                'message' => $exception->getMessage()
+            ], 400);
+        }
                    
-    // }
+    }
 }

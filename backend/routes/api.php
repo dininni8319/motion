@@ -15,9 +15,6 @@ use App\Http\Controllers\PublicController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
 Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
  
@@ -32,7 +29,8 @@ Route::group(['prefix' => 'users', 'middleware' => 'CORS'], function ($router){
     
     Route::get('/posts', [PublicController::class, 'index'])->name('index');
     Route::get('/get-comments', [PublicController::class, 'getAllComments'])->name('getAllComments');
-    Route::post('/add-post', [PublicController::class, 'storePost'])->name('addPost'); 
     Route::post('/add-comment/{post_id}', [PublicController::class, 'storeComment'])->name('addComment'); 
+    Route::post('/add-post', [PublicController::class, 'storePost'])->name('addPost'); 
+    Route::post('/complete-profile', [PublicController::class, 'completeProfile'])->name('completeProfile'); 
 });
 

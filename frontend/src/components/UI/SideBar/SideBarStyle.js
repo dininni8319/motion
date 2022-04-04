@@ -9,6 +9,7 @@ export const SideBarStyle = styled.section`
     align-items: center;
     padding: 0 10px;
     border-bottom: 1px solid ${(props) => props.theme.backgroundColor};
+    overflow-x: scroll;
 
     .user-profile-initials {
         color: ${(props) => props.theme.textWhiteColor};

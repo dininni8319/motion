@@ -18,7 +18,7 @@ const UserDetailPage = () => {
             <Navbar /> 
             <SideBar allUsers={allUsers} />
             <Header />
-            <FormUserProfile /> 
+            <FormUserProfile slug={slug}/> 
         </UserProfileStyle>
     )
 };

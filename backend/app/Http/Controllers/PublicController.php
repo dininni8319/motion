@@ -4,20 +4,13 @@ namespace App\Http\Controllers;
 
 use Closure;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
-    // public function __construct(){
-    // alternativa 
-    //     // $this->middleware(function ($request,Closure $next) {
-    //     //     $this->user = Auth::user();
-    //     //     return $next($request);
-    //     // });
-    // }
-
     public function __construct(){
         $this->middleware("auth:api", ["except" => ["index"] ] );
     }
@@ -108,6 +101,34 @@ class PublicController extends Controller
             'status' => 200,
             'message' => 'Coment added successfully' 
         ]);
+    }
 
+    public function completeProfile(Request $request) {
+
+        $userId = Auth::guard('api')->id();
+        $userProfile = User::find($userId);
+        $userProfile->phone_number = $request->input('phone_number');
+        $userProfile->address = $request->input('address');
+        $userProfile->city = $request->input('city');
+        $userProfile->zip_code = $request->input('zip_code');
+        $userProfile->description = $request->input('description');
+        
+        if ($request->hasFile('img')) {
+
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() .".".$extension;
+            $file->move('assets/img/', $filename);
+            $userProfile->img = 'assets/img/'.$filename;
+        }
+
+        $userProfile->save();
+       
+        return response()->json([
+            'status' => 200,
+            'message' => 'Your profile was completed successfully',
+            'user' => $userProfile, 
+            'userIduu' => $userId,
+        ]);
     }
 }
