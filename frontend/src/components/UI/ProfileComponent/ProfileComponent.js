@@ -1,20 +1,46 @@
-const ProfileComponent = ({ userProfile }) => {
-    return ( 
-        <section className="">
-            <section>
-                  <h2><span>{userProfile.first_name}</span> <span>{userProfile.last_name}</span></h2>
-                  <p>{userProfile.description}</p>
-            </section>
+import { ProfileStyle, ProfileDetail } from './ProfileStyle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faCity, faLocationDot, faAddressBook } from '@fortawesome/free-solid-svg-icons';
 
-            <section>
-                <ul>
-                    <li>{userProfile.email}</li>
-                    <li>{userProfile.city}</li>
-                    <li>{userProfile.phone_number}</li>
-                    <li>{userProfile.zip_code}</li>
-                </ul>
-            </section>
-        </section>
+const ProfileComponent = ({ userProfile, slug }) => {
+
+    return ( 
+        <>
+            {
+                userProfile.id === Number(slug) && <ProfileStyle className="">
+                    <ProfileDetail>
+                        <section className='profile-detail-img-section'>
+                            <h2 className="my-5">Title:{userProfile.first_name} {userProfile.last_name}</h2>
+                            <p className='mt-3'>Description:{userProfile.description}</p>
+                        </section>
+            
+                        <ul className='profile-detail-section mt-5'>
+                            <li> <FontAwesomeIcon
+                              icon={faEnvelope}
+                              className={`fa-1x mx-1 icon-custom-style`}         
+                        />: {userProfile.email}</li>
+                            <li><FontAwesomeIcon
+                              icon={faCity}
+                              className={`fa-1x mx-1 icon-custom-style`}         
+                        />: {userProfile.city}</li>
+                            <li><FontAwesomeIcon
+                              icon={faLocationDot}
+                              className={`fa-1x mx-1 icon-custom-style`}         
+                        />: {userProfile.phone_number}</li>
+                            <li><FontAwesomeIcon
+                              icon={faEnvelope}
+                              className={`fa-1x mx-1 icon-custom-style`}         
+                        />: {userProfile.zip_code}</li>
+                         <li><FontAwesomeIcon
+                              icon={faAddressBook}
+                              className={`fa-1x mx-1 icon-custom-style`}         
+                        />: {userProfile.address}</li>
+                        </ul>
+                    </ProfileDetail>
+                    </ProfileStyle>
+            }
+        </>
+      
      );
 }
  

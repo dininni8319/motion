@@ -7,6 +7,7 @@ export const PostsContext = createContext();
 export function PostsProvider(props) {
 
     const [posts, setPosts] = useState([]);
+    const [ getUserProfile, setGetUserProfile ] = useState([])
     const { user } = useContext(AuthContext);
     const { url } = useContext(ConfigContext);
     
@@ -20,6 +21,17 @@ export function PostsProvider(props) {
             .then((data) => setPosts(data.posts))
             .catch((e) => console.log(e));
     }, []);
+    
+    // useEffect(() => {
+    //     fetch(`${url.backend}/api/users/posts`, {
+    //         headers: {
+    //             Authorization: `Bearer ${user?.token}`
+    //         }
+    //     })
+    //         .then((resp) => resp.json())
+    //         .then((data) => setPosts(data.posts))
+    //         .catch((e) => console.log(e));
+    // }, []);
 
     return (
         <PostsContext.Provider value={{ posts }}>

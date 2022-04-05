@@ -131,4 +131,15 @@ class PublicController extends Controller
             'userIduu' => $userId,
         ]);
     }
+
+    public function getUserProfile(Request $request, $id){
+
+        $user = User::find($id);
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Your profile was completed successfully',
+            'user' => $user
+        ]);
+    }
 }

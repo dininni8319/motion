@@ -1,8 +1,10 @@
 import { RegisterStyle, ButtonStyle } from './../../Views/Register/RegisterStyle';
 import { InputSection } from '../../Views/Login/LoginStyle';
 import { useState, useRef, useContext, useEffect } from 'react';
+import { FormUserProfileStyle } from './FormUserProfileStyle';
 import { useNavigate } from 'react-router';
 import { AuthContext } from './../../Context/Auth/index';
+import { PostContext } from './../../Context/PostsContext/index';
 import { ProfileComponent } from '../index';
 import axios from 'axios';
 
@@ -15,13 +17,13 @@ const FormUserProfile = ({ slug }) => {
     let city = useRef('')
 
     let { user } = useContext(AuthContext)
+    // let { all}
     const [image, setImage] = useState([]);
     const [error, setError] = useState(false);
     const [ userProfile, setUserProfile ] = useState([]);
     
     const profile = userProfile.address && userProfile.phone && userProfile.description && userProfile.zip_code
     let profileId = Number(slug) === user.id
-    console.log(profile, 'testing the profile');
     const navigate = useNavigate();
     
     const enteredNumber = phone.current?.value;
@@ -42,8 +44,7 @@ const FormUserProfile = ({ slug }) => {
         axios
                 .get('http://localhost:8000/api/users/view-profile', config)
                 .then((resp) => {
-                        setUserProfile(resp.data.data);
-                    
+                        setUserProfile(resp.data.data); 
                 })
                 .catch((e) => console.log(e));
     }, [])
@@ -71,8 +72,11 @@ const FormUserProfile = ({ slug }) => {
             .catch((e) => console.log(e));
     }
     return ( 
-        <>   
-            <ProfileComponent userProfile={userProfile}/>
+        <FormUserProfileStyle>   
+            <ProfileComponent 
+                userProfile={userProfile} 
+                slug={slug}
+            />
           {
             profileId && profile === null && <RegisterStyle onSubmit={handleSubmit}> 
                 <section className="row-form mt-5">
@@ -93,6 +97,7 @@ const FormUserProfile = ({ slug }) => {
                         {
                             error && <span className="error">Please fill the required fild</span>
                         }
+
                     </InputSection>
                     <InputSection className="mb-3 flex flex-col">
                         <label className="form-label mb-2" htmlFor="">Image</label>
@@ -135,7 +140,7 @@ const FormUserProfile = ({ slug }) => {
                 </section>
             </RegisterStyle> 
            }
-        </>    
+        </FormUserProfileStyle>    
      );
 }
  

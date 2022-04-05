@@ -16,6 +16,7 @@ export const SectionPosts = styled.section`
         margin-bottom: 5px;
         border-bottom: 1px solid ${props => props.theme.backgroundColor};
     }
+    
     img {
         width: 100%;
         height: 80%;
