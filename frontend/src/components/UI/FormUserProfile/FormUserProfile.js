@@ -2,7 +2,8 @@ import { RegisterStyle, ButtonStyle } from './../../Views/Register/RegisterStyle
 import { InputSection } from '../../Views/Login/LoginStyle';
 import { useState, useRef, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { AuthContext } from './../../Context/Auth/index'
+import { AuthContext } from './../../Context/Auth/index';
+import { ProfileComponent } from '../index';
 import axios from 'axios';
 
 const FormUserProfile = ({ slug }) => {
@@ -17,7 +18,10 @@ const FormUserProfile = ({ slug }) => {
     const [image, setImage] = useState([]);
     const [error, setError] = useState(false);
     const [ userProfile, setUserProfile ] = useState([]);
-
+    
+    const profile = userProfile.address && userProfile.phone && userProfile.description && userProfile.zip_code
+    let profileId = Number(slug) === user.id
+    console.log(profile, 'testing the profile');
     const navigate = useNavigate();
     
     const enteredNumber = phone.current?.value;
@@ -30,7 +34,6 @@ const FormUserProfile = ({ slug }) => {
         setImage(file[0]);
     };
     
-    
     const config = {
         headers: { Authorization: `Bearer ${user.token}` }
     };
@@ -39,7 +42,7 @@ const FormUserProfile = ({ slug }) => {
         axios
                 .get('http://localhost:8000/api/users/view-profile', config)
                 .then((resp) => {
-                        setUserProfile(...resp.data.data);
+                        setUserProfile(resp.data.data);
                     
                 })
                 .catch((e) => console.log(e));
@@ -69,9 +72,9 @@ const FormUserProfile = ({ slug }) => {
     }
     return ( 
         <>   
-        
+            <ProfileComponent userProfile={userProfile}/>
           {
-            userProfile == false && Number(slug) === user.id ? <RegisterStyle onSubmit={handleSubmit}> 
+            profileId && profile === null && <RegisterStyle onSubmit={handleSubmit}> 
                 <section className="row-form mt-5">
                         <h1
                             className={`text-black font-medium text-3xl mb-3 mt-12`}
@@ -130,13 +133,9 @@ const FormUserProfile = ({ slug }) => {
                         <ButtonStyle type='submit'>Submit</ButtonStyle>
                     </InputSection>
                 </section>
-            </RegisterStyle> : <span> Test the user profile</span>
-
+            </RegisterStyle> 
            }
-        </>
-        
-      
-          
+        </>    
      );
 }
  
