@@ -30,18 +30,34 @@ export const ProfileDetail = styled.section`
             align-items: flex-start;
             justify-content: space-around;
             padding: 20px;
+            /* position: relative; */
             
             div {
-                display: flex;
-                justify-content: center;
+                position: relative;
+                height: 30%;
                 width: 30%;
             }
-
+            
+            
             div > img {
-               width: 100%;
-               height: 50%;
-               
-           }
+                width: 100%;
+                height: 50%;
+                border-top-right-radius:30px;
+            }
+            
+            div::before {
+                content: '';
+                display: flex;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                background: rgb(2,0,36);
+                background: linear-gradient(76deg, rgba(2,0,36,1) 0%, rgba(225,188,87,0.2195377296426383) 0%);
+                z-index: 10;
+                border-top-right-radius:30px;
+
+            }
         }
         
 

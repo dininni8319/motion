@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CardStyle = styled.section`
     padding-top: 20px;
     background-color: ${(props) => props.theme.backgroundColor};
-`;
+    `;
 
 export const SectionPosts = styled.section`
     margin-bottom: 10px;

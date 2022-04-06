@@ -18,7 +18,7 @@ const ProfileComponent = ({ slug }) => {
                     <ProfileDetail>
                         <section className='profile-detail-img-section'>
                     {
-                        userProfile.img !== null && <div >
+                        userProfile.img !== null && <div className='img-shadow-custom drop-shadow-2xl'>
                             <img
                             src={`http://localhost:8000/${userProfile.img}`}
                             alt={userProfile.first_name}

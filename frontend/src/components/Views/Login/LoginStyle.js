@@ -76,10 +76,11 @@ export const LoginStyled = styled.form`
     p {
         top: 45%;
         font-size: small;
+        color: gold
     }
 
     .icon-custom-style {
-        top: 30%;
+        top: 32%;
         left: 28%;
         transform: rotate(-5deg);
     }
