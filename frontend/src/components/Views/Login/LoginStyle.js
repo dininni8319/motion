@@ -82,6 +82,6 @@ export const LoginStyled = styled.form`
     }
 `;
 export const InputSection = styled.section`
-    width: 40%;
+    width: 50%;
     margin-bottom: 20px;
 `;

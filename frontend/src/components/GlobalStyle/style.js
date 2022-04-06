@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Theme = {
     //Colors
     backgroundColor: '#F2F2F2',
-    boldColor: 'gold',
+    goldColor: 'gold',
     textWhiteColor: 'white',
     textColorGrey: '#808080',
     borderColor: '#FCEADE',

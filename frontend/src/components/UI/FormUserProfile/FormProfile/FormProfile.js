@@ -3,6 +3,7 @@ import { InputSection } from '../../../Views/Login/LoginStyle';
 import { FormProfileStyle, ButtonProfileStyle } from './FormProfileStyle';
 
 const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCode, city, description, authUser}) => {
+    
     const [ completeProfile, setCompleteProfile ] = useState(false);
     
     const handleForm = (e) => {
@@ -12,7 +13,7 @@ const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCod
     return ( 
         <>
           {
-              authUser && <button onClick={handleForm} className='px-3 bg-white w-full p'>Complete or update your profile</button>
+              authUser && <button onClick={handleForm} className='px-3 bg-white w-full text-2xl py-2 border-gray-400 border-solid '>Complete or update your profile</button>
 
           }
           

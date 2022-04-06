@@ -17,7 +17,7 @@ const ProfileComponent = ({ slug }) => {
                     <ProfileDetail>
                         <section className='profile-detail-img-section'>
                             <section>
-                                <h2 className='font-light'>{userProfile.first_name} {userProfile.last_name}</h2>
+                                <h1 className='text-black font-medium text-3xl mb-2 capitalize'>{userProfile.first_name} {userProfile.last_name}</h1>
                                 {
                                     profile !== undefined || profile !== null && <section className='flex flex-col'>
                                             <p className='mt-3'>Description:{userProfile.description}</p>

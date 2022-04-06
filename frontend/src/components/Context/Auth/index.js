@@ -21,7 +21,6 @@ export function AuthProvider(props) {
         localStorage.setItem('user', JSON.stringify(obj));
     };
 
-    // console.log(user.token);
     const logout = () => {
         fetch(`${url.backend}/api/users/logout`, {
             method: 'POST',

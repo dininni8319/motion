@@ -16,10 +16,6 @@ export const FormAddPostStyle = styled.form`
     align-items: center;
     background-color: ${(props) => props.theme.backgroundColor};
 
-    .btn-create-post {
-        background-color: ${(props) => props.theme.buttoncolor};
-    }
-
     .input-create-post {
         outline: none;
         width: 20rem;
@@ -48,12 +44,12 @@ export const InputSection = styled.section`
     width: 100%;
 `;
 
-export const ButtonAddPostStyle = styled.section`
+export const ButtonAddPostStyle = styled.button`
     color: ${(props) => props.theme.textWhiteColor};
     background-color: ${(props) => props.theme.buttoncolor};
     width: 21rem;
     height: 2.3rem;
     border-radius: 20px;
     text-align: center;
-    padding-top: 5px;
+    padding-bottom: 3px;
 `;

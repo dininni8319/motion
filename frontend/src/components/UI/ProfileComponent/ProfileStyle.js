@@ -20,9 +20,9 @@ export const ProfileDetail = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-    
+        
         padding: 20px;
-
+        
         .profile-detail-img-section {
             width: 100%;
             display: flex;
@@ -31,7 +31,7 @@ export const ProfileDetail = styled.section`
             /* background: ${props => props.theme.backgroundColor}; */
             padding: 20px;
         }
-
+        
         .profile-detail-img-section > img {
             width: 30%;
             height: 80%;

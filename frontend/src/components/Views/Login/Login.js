@@ -42,6 +42,7 @@ const Login = () => {
 
     return (
         <LoginStyled onSubmit={handleLogin}>
+            
             <SideHeader />
             <section className="row-form mt-12">
                 <InputSection className="mb-5 flex flex-col">

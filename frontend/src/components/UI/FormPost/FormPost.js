@@ -1,20 +1,21 @@
 import {
     FormAddPostStyle,
-    ButtonAddPostStyle,
     InputSection
 } from './../../Views/AddPost/AddPostStyle';
+
+import { ButtonProfileStyle } from './FormPostStyle'
 
 const FormPost = ({ handleSubmit, imageHandler, setContent, content, error }) => {
     
     return ( 
         <FormAddPostStyle onSubmit={handleSubmit}>
             <InputSection>
-                <ButtonAddPostStyle
+                <ButtonProfileStyle
                     type="submit"
-                    className="btn-create-post"
+
                 >
                     Submit
-                </ButtonAddPostStyle>
+                </ButtonProfileStyle>
             </InputSection>
             <InputSection>
                 <input
