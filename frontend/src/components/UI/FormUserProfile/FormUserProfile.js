@@ -1,14 +1,15 @@
-import { RegisterStyle, ButtonStyle } from './../../Views/Register/RegisterStyle';
-import { InputSection } from '../../Views/Login/LoginStyle';
 import { useState, useRef, useContext, useEffect } from 'react';
 import { FormUserProfileStyle } from './FormUserProfileStyle';
 import { useNavigate } from 'react-router';
 import { AuthContext } from './../../Context/Auth/index';
-import { PostContext } from './../../Context/PostsContext/index';
 import { ProfileComponent } from '../index';
+import FormProfile from './FormProfile/FormProfile';
 import axios from 'axios';
 
 const FormUserProfile = ({ slug }) => {
+    let { user } = useContext(AuthContext)
+    const [image, setImage] = useState([]);
+    const [error, setError] = useState(false);
 
     let phone = useRef(0)
     let address = useRef('')
@@ -16,21 +17,7 @@ const FormUserProfile = ({ slug }) => {
     let description = useRef('')
     let city = useRef('')
 
-    let { user } = useContext(AuthContext)
-    // let { all}
-    const [image, setImage] = useState([]);
-    const [error, setError] = useState(false);
-    const [ userProfile, setUserProfile ] = useState([]);
-    
-    const profile = userProfile.address && userProfile.phone && userProfile.description && userProfile.zip_code
-    let profileId = Number(slug) === user.id
     const navigate = useNavigate();
-    
-    const enteredNumber = phone.current?.value;
-    const enteredAddress = address.current?.value;
-    const enteredCity = city.current?.value;
-    const enteredDescription = description.current?.value;
-    const enteredZipCode = zipCode.current?.value;
 
     const imageHandler = (file) => {
         setImage(file[0]);
@@ -40,25 +27,16 @@ const FormUserProfile = ({ slug }) => {
         headers: { Authorization: `Bearer ${user.token}` }
     };
 
-    useEffect(() => {
-        axios
-                .get('http://localhost:8000/api/users/view-profile', config)
-                .then((resp) => {
-                        setUserProfile(resp.data.data); 
-                })
-                .catch((e) => console.log(e));
-    }, [])
-
     const handleSubmit = (e) => {
         e.preventDefault();
         
         const formatData = new FormData();
 
-        formatData.append('phone_number', enteredNumber);
-        formatData.append('address', enteredAddress);
-        formatData.append('zip_code', enteredZipCode);
-        formatData.append('description', enteredDescription);
-        formatData.append('city', enteredCity);
+        formatData.append('phone_number', phone.current?.value);
+        formatData.append('address', address.current?.value);
+        formatData.append('city', city.current?.value);
+        formatData.append('description', description.current?.value);
+        formatData.append('zip_code', zipCode.current?.value);
         formatData.append('img', image);
 
         axios
@@ -73,73 +51,18 @@ const FormUserProfile = ({ slug }) => {
     }
     return ( 
         <FormUserProfileStyle>   
-            <ProfileComponent 
-                userProfile={userProfile} 
+            <ProfileComponent  
                 slug={slug}
             />
-          {
-            profileId && profile === null && <RegisterStyle onSubmit={handleSubmit}> 
-                <section className="row-form mt-5">
-                        <h1
-                            className={`text-black font-medium text-3xl mb-3 mt-12`}
-                        >
-                            Complete your profile
-                        </h1>
-                    <InputSection className="mb-3 flex flex-col">
-                        <label className="form-label mb-2" htmlFor="">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" 
-                            ref={phone}
-                        //   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                            className="rounded"
-                            required
-                        />
-
-                        {
-                            error && <span className="error">Please fill the required fild</span>
-                        }
-
-                    </InputSection>
-                    <InputSection className="mb-3 flex flex-col">
-                        <label className="form-label mb-2" htmlFor="">Image</label>
-                        <input 
-                            type="file" 
-                            className="rounded"
-                            onChange={(e) => imageHandler(e.target.files)} 
-                        />
-                    </InputSection>
-                    <InputSection className="mb-3 flex flex-col">
-                        <label className="form-label mb-2" htmlFor="">Address</label>
-                        <input type="text" className="rounded" 
-                            ref={address}
-                        />
-                    </InputSection>
-                    <InputSection className="mb-3 flex flex-col">
-                        <label className="form-label mb-2" htmlFor="">Zip code</label>
-                        <input type="number" 
-                            className="rounded" 
-                            ref={zipCode}
-                        />
-                    </InputSection>
-                    <InputSection className="mb-3 flex flex-col">
-                        <label className="form-label mb-2" htmlFor="">City</label>
-                        <input 
-                            type="text" 
-                            className="rounded" 
-                            ref={city}
-                        />
-                    </InputSection>
-                    <InputSection className="mb-3 flex flex-col">
-                        <textarea id="story" name="story" ref={description}
-                            rows="5" cols="33">
-                            Write something about you...
-                        </textarea>
-                    </InputSection>
-                    <InputSection className="mb-3 flex flex-col">
-                        <ButtonStyle type='submit'>Submit</ButtonStyle>
-                    </InputSection>
-                </section>
-            </RegisterStyle> 
-           }
+            <FormProfile 
+                handleSubmit={handleSubmit}
+                imageHandler={imageHandler}
+                city={city}
+                address={address}
+                phone={phone}
+                zipCode={zipCode}
+                error={error}
+            />
         </FormUserProfileStyle>    
      );
 }

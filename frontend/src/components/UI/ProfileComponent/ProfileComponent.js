@@ -1,55 +1,55 @@
 import { ProfileStyle, ProfileDetail } from './ProfileStyle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faCity, faLocationDot, faAddressBook } from '@fortawesome/free-solid-svg-icons';
-import { useCallback } from 'react';
+import { useContext } from 'react';
 import { PostsContext } from '../../Context/PostsContext';
 
-const ProfileComponent = ({  slug }) => {
-  
-    const { getUsersProfile } = useCallback(PostsContext);
-    console.log(getUsersProfile);
+const ProfileComponent = ({ slug }) => {
+
+    const { getUsersProfile } = useContext(PostsContext);
+    let userProfile = getUsersProfile?.filter(el => el.id === Number(slug))[0]
+    
     return ( 
+
         <>
-            {    //userProfile.id === Number(slug) &&
-                getUsersProfile?.filter(el => {
-                  if (el.id === slug) {
-                    <ProfileStyle className="">
+            {
+                userProfile && <ProfileStyle className="">
                     <ProfileDetail>
                         <section className='profile-detail-img-section'>
-                            <h2 className="my-5">Title:{el.first_name} {el.last_name}</h2>
-                            <p className='mt-3'>Description:{el.description}</p>
+                            <h2 className="my-5">Title:{userProfile.first_name} {userProfile.last_name}</h2>
+                            <p className='mt-3'>Description:{userProfile.description}</p>
                         </section>
             
                         <ul className='profile-detail-section mt-5'>
                             <li> <FontAwesomeIcon
                             icon={faEnvelope}
                             className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {el.email}</li>
+                        />: {userProfile.email}</li>
                             <li><FontAwesomeIcon
                             icon={faCity}
                             className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {el.city}</li>
+                        />: {userProfile.city}</li>
                             <li><FontAwesomeIcon
                             icon={faLocationDot}
                             className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {el.phone_number}</li>
+                        />: {userProfile.phone_number}</li>
                             <li><FontAwesomeIcon
                             icon={faEnvelope}
                             className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {el.zip_code}</li>
+                        />: {userProfile.zip_code}</li>
                         <li><FontAwesomeIcon
                             icon={faAddressBook}
                             className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {el.address}</li>
+                        />: {userProfile.address}</li>
                         </ul>
                     </ProfileDetail>
                 </ProfileStyle>
-                  }  
-                })   
+
             }
+             
         </>
-      
-     );
+    )   
+    
 }
  
 export default ProfileComponent;

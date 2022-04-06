@@ -2,21 +2,16 @@ import { useParams } from 'react-router';
 import { useState, useEffect, useContext } from 'react';
 import { Navbar, FormUserProfile, Header, SideBar } from './../../UI/index';
 import { UserProfileStyle } from './UserProfileStyle';
+import { PostsContext } from '../../Context/PostsContext';
 
 const UserDetailPage = () => {
     let { slug } = useParams();
-    const [allUsers, setAllUsers] = useState([]);
+    let { getUsersProfile } = useContext(PostsContext)
     
-    useEffect(() => {
-        fetch('http://localhost:8000/api/users/get-all-users')
-            .then((resp) => resp.json())
-            .then((data) => setAllUsers(data.data));
-    }, []);
-
     return (
         <UserProfileStyle>
             <Navbar /> 
-            <SideBar allUsers={allUsers} />
+            <SideBar allUsers={getUsersProfile} />
             <Header />
             <FormUserProfile slug={slug} /> 
         </UserProfileStyle>
