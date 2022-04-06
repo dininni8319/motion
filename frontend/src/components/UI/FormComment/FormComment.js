@@ -43,7 +43,7 @@ const FormComment = ({ id }) => {
             </button>
             <section>
                 <input type="text" {...comment} 
-                  className='comment-input px-5 py-1 rounded'
+                  className='comment-input px-1 py-1 rounded'
                   placeholder='Write a comment'
                 />
             </section>

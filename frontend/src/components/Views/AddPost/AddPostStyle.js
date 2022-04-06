@@ -51,7 +51,7 @@ export const InputSection = styled.section`
 export const ButtonAddPostStyle = styled.section`
     color: ${(props) => props.theme.textWhiteColor};
     background-color: ${(props) => props.theme.buttoncolor};
-    width: 12rem;
+    width: 21rem;
     height: 2.3rem;
     border-radius: 20px;
     text-align: center;

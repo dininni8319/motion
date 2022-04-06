@@ -8,7 +8,6 @@ export const FormProfileStyle = styled(RegisterStyle)`
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: start;
     }
 `;
 

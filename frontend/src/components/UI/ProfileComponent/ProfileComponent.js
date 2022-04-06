@@ -13,39 +13,52 @@ const ProfileComponent = ({ slug }) => {
     return ( 
         <>
             {
-                userProfile  && <ProfileStyle className="">
+                userProfile  && <ProfileStyle>
                     <ProfileDetail>
                         <section className='profile-detail-img-section'>
-                            <h2 className="my-5">Title:{userProfile.first_name} {userProfile.last_name}</h2>
+                            <section>
+                                <h2 className='font-light'>{userProfile.first_name} {userProfile.last_name}</h2>
+                                {
+                                    profile !== undefined || profile !== null && <section className='flex flex-col'>
+                                            <p className='mt-3'>Description:{userProfile.description}</p>
+                                            <ul className='mt-5'>
+                                                <li> <FontAwesomeIcon
+                                                    icon={faEnvelope}
+                                                    className={`fa-1x mx-1 icon-custom-style`}         
+                                                />: {userProfile.email}</li>
+                                                <li><FontAwesomeIcon
+                                                    icon={faCity}
+                                                    className={`fa-1x mx-1 icon-custom-style`}         
+                                                />: {userProfile.city}</li>
+                                                <li><FontAwesomeIcon
+                                                    icon={faLocationDot}
+                                                    className={`fa-1x mx-1 icon-custom-style`}         
+                                                />: {userProfile.phone_number}</li>
+                                                    <li><FontAwesomeIcon
+                                                    icon={faEnvelope}
+                                                    className={`fa-1x mx-1 icon-custom-style`}         
+                                                />: {userProfile.zip_code}</li>
+                                                <li><FontAwesomeIcon
+                                                    icon={faAddressBook}
+                                                    className={`fa-1x mx-1 icon-custom-style`}         
+                                                />: {userProfile.address}</li>
+                                            </ul>
+                                        </section> 
+                                }
+
+                            </section>
+                             
+                           
+                           {
+                                userProfile.img !== null && <img
+                                   src={`http://localhost:8000/${userProfile.img}`}
+                                   alt={userProfile.first_name}
+                                   className='shadow'
+                                />
+                           }
+
                         </section>
             
-                        <ul className='profile-detail-section mt-5'>
-                            <li> <FontAwesomeIcon
-                            icon={faEnvelope}
-                            className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {userProfile.email}</li>
-                            {
-                                profile !== undefined || profile !== null && <>
-                                        <li><FontAwesomeIcon
-                                            icon={faCity}
-                                            className={`fa-1x mx-1 icon-custom-style`}         
-                                        />: {userProfile.city}</li>
-                                        <li><FontAwesomeIcon
-                                            icon={faLocationDot}
-                                            className={`fa-1x mx-1 icon-custom-style`}         
-                                        />: {userProfile.phone_number}</li>
-                                            <li><FontAwesomeIcon
-                                            icon={faEnvelope}
-                                            className={`fa-1x mx-1 icon-custom-style`}         
-                                        />: {userProfile.zip_code}</li>
-                                        <li><FontAwesomeIcon
-                                            icon={faAddressBook}
-                                            className={`fa-1x mx-1 icon-custom-style`}         
-                                        />: {userProfile.address}</li>
-                                        <p className='mt-3'>Description:{userProfile.description}</p>
-                                   </> 
-                                 }
-                        </ul>
                     </ProfileDetail>
                 </ProfileStyle>
 
