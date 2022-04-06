@@ -34,7 +34,8 @@ export const ProfileDetail = styled.section`
         
         .profile-detail-img-section > img {
             width: 30%;
-            height: 80%;
+            height: 50%;
+            object-fit: contain;
             
         }
 

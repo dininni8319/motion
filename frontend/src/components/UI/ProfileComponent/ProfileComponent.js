@@ -20,7 +20,6 @@ const ProfileComponent = ({ slug }) => {
                                 <h1 className='text-black font-medium text-3xl mb-2 capitalize'>{userProfile.first_name} {userProfile.last_name}</h1>
                                 {
                                     profile !== undefined || profile !== null && <section className='flex flex-col'>
-                                            <p className='mt-3'>Description:{userProfile.description}</p>
                                             <ul className='mt-5'>
                                                 <li> <FontAwesomeIcon
                                                     icon={faEnvelope}
@@ -42,6 +41,7 @@ const ProfileComponent = ({ slug }) => {
                                                     icon={faAddressBook}
                                                     className={`fa-1x mx-1 icon-custom-style`}         
                                                 />: {userProfile.address}</li>
+                                            <p className='mt-3'>Description:{userProfile.description}</p>
                                             </ul>
                                         </section> 
                                 }

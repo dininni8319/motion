@@ -10,6 +10,18 @@ export const SideBarStyle = styled.section`
     margin-top: 10px;
     overflow-x: scroll;
 
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 5px;
+        background-color: white;
+    }
+
+    ::-webkit-scrollbar-thumb {
+       background: ${(props) => props.theme.greyColor};
+       border-radius: 5px;
+    }
+
+
     .user-profile-initials {
         color: ${(props) => props.theme.textWhiteColor};
         background-color: ${(props) => props.theme.buttoncolor};
