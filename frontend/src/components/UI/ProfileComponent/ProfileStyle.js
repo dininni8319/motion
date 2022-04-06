@@ -7,7 +7,7 @@ export const ProfileStyle = styled.ul`
      align-items: start;
      background: ${props => props.theme.whiteColor};
      padding: 30px 0;
-
+     
      h2 {
          text-transform: capitalize;
          font-weight: bold;
@@ -21,6 +21,7 @@ export const ProfileDetail = styled.section`
         flex-direction: column;
         align-items: center;
         
+        min-height: 70vh;
         padding: 20px;
         
         .profile-detail-img-section {
@@ -28,16 +29,21 @@ export const ProfileDetail = styled.section`
             display: flex;
             align-items: flex-start;
             justify-content: space-around;
-            /* background: ${props => props.theme.backgroundColor}; */
             padding: 20px;
+            
+            div {
+                display: flex;
+                justify-content: center;
+                width: 30%;
+            }
+
+            div > img {
+               width: 100%;
+               height: 50%;
+               
+           }
         }
         
-        .profile-detail-img-section > img {
-            width: 30%;
-            height: 50%;
-            object-fit: contain;
-            
-        }
 
         .icon-custom-style {
             color: ${props => props.theme.buttoncolor}

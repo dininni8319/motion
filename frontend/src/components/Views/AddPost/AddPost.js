@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router';
 import { Card, SideBar, Navbar } from './../../UI/index';
 import FormPost from './../../UI/FormPost/FormPost';
 import { AuthContext } from './../../Context/Auth/index';
@@ -12,16 +11,13 @@ import {
 import axios from 'axios';
 
 const AddPost = () => {
+
     const { user } = useContext(AuthContext);
     const { posts, getUsersProfile } = useContext(PostsContext);
     
     const [error, setError] = useState(false);
     const [content, setContent] = useState('');
     const [image, setImage] = useState([]);
-
-    const token = user.token;
-
-    const navigate = useNavigate();
 
     const imageHandler = (file) => {
         setImage(file[0]);

@@ -12,10 +12,20 @@ const ProfileComponent = ({ slug }) => {
 
     return ( 
         <>
+            
             {
                 userProfile  && <ProfileStyle>
                     <ProfileDetail>
                         <section className='profile-detail-img-section'>
+                    {
+                        userProfile.img !== null && <div >
+                            <img
+                            src={`http://localhost:8000/${userProfile.img}`}
+                            alt={userProfile.first_name}
+                            className='shadow profile-img'
+                            />
+                        </div> 
+                    }
                             <section>
                                 <h1 className='text-black font-medium text-3xl mb-2 capitalize'>{userProfile.first_name} {userProfile.last_name}</h1>
                                 {
@@ -47,15 +57,7 @@ const ProfileComponent = ({ slug }) => {
                                 }
 
                             </section>
-                             
                            
-                           {
-                                userProfile.img !== null && <img
-                                   src={`http://localhost:8000/${userProfile.img}`}
-                                   alt={userProfile.first_name}
-                                   className='shadow'
-                                />
-                           }
 
                         </section>
             

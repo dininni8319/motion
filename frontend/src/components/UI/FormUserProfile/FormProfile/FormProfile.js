@@ -13,7 +13,7 @@ const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCod
     return ( 
         <>
           {
-              authUser && <button onClick={handleForm} className='px-3 bg-white w-full text-2xl py-2 border-gray-400 border-solid '>Complete or update your profile</button>
+            authUser && <button onClick={handleForm} className='px-3 bg-white w-full text-3xl py-4 border-gray-400 border-solid '>Complete or update your profile</button>
 
           }
           
@@ -40,12 +40,15 @@ const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCod
         
                             </InputSection>
                             <InputSection className="mb-3 flex flex-col">
-                                <label className="form-label mb-2" htmlFor="">Image</label>
-                                <input 
-                                    type="file" 
-                                    className="rounded"
-                                    onChange={(e) => imageHandler(e.target.files)} 
-                                />
+                                <div>
+                                    <label className="custom-file-upload form-label mb-2">
+                                        <input
+                                            type="file"
+                                            onChange={(e) => imageHandler(e.target.files)}
+                                            required
+                                        />
+                                    </label>
+                                </div>
                             </InputSection>
                             <InputSection className="mb-3 flex flex-col">
                                 <label className="form-label mb-2" htmlFor="">Address</label>
