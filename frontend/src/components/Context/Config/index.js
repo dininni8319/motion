@@ -1,3 +1,5 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { createContext } from 'react';
 
 export const ConfigContext = createContext();

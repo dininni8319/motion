@@ -1,9 +1,8 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom';
 // react-routes
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import ProtectedRoute from './components/utilities/ProtectedRoute';
 
 // Views

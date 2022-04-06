@@ -1,3 +1,4 @@
+import React from 'react'
 import { useParams } from 'react-router';
 import { useState, useEffect, useContext } from 'react';
 import { Navbar, FormUserProfile, Header, SideBar } from './../../UI/index';
