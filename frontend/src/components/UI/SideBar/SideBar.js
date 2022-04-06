@@ -17,7 +17,8 @@ const SideBar = ({ allUsers }) => {
         <SideBarStyle>
             {allUsers && allUsers.filter(el => el.id !== user.id ).map((el) => {
                 return (
-                    <SectionUserProfile key={el.id}>
+                  <section key={el.id}>
+                    <SectionUserProfile >
                         <Link to={`/users-detail-page/${el.id}`}>
                             <span className="p-2 font-thin text-sm uppercase user-profile-initials">
                                 {sliceLetter(el.first_name)}
@@ -25,6 +26,7 @@ const SideBar = ({ allUsers }) => {
                             </span>
                         </Link>
                     </SectionUserProfile>
+                  </section>
                 );
             })}
         </SideBarStyle>

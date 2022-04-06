@@ -5,6 +5,7 @@ import {
 } from './../../Views/AddPost/AddPostStyle';
 
 const FormPost = ({ handleSubmit, imageHandler, setContent, content, error }) => {
+    
     return ( 
         <FormAddPostStyle onSubmit={handleSubmit}>
             <InputSection>

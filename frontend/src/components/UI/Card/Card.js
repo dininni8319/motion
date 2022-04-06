@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { CardStyle, SectionPosts } from './CardStyle';
 import FormComment from './../FormComment/FormComment';
 import { useContext, useEffect, useState } from 'react';
@@ -7,6 +6,7 @@ import { AuthContext } from '../../Context/Auth';
 import { formatDate } from './../../utilities/functions';
 
 const Card = ({ posts }) => {
+
     const [ comments, setComments ] = useState(null);
     const [ showComments, setShowComments ] = useState(false);
     const { url } = useContext(ConfigContext)
@@ -29,8 +29,8 @@ const Card = ({ posts }) => {
             {posts &&
                 [...posts].reverse().map((el) => {
                     return (
-                        <>
-                            <SectionPosts key={el.id}>
+                        <SectionPosts>
+                            <section key={el.id}>
                                 <section className='flex flex-col'>
                                     <section className='flex items-center justify-between card-header-custom'>
                                         <span className="text-sm">
@@ -59,13 +59,13 @@ const Card = ({ posts }) => {
                                                     </section>
         
                                                 ) 
-                                                }) : <span className='text-sm p-2'>...check the comments</span>
+                                            }) : <span className='text-sm p-2'>...check the comments</span>
                                         }
 
                                     </section>
-                            </SectionPosts>
+                            </section>
                               
-                        </>
+                        </SectionPosts>
                     );
                 })}
         </CardStyle>

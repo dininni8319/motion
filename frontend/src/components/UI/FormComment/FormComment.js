@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router';
+import { useContext } from 'react';
 import useInput from './../../../Hooks/useInput';
 import { AuthContext } from '../../Context/Auth';
 import { ConfigContext } from '../../Context/Config';
@@ -8,7 +7,6 @@ import axios from 'axios';
 
 const FormComment = ({ id }) => {
     const comment = useInput('');
-    const navigate = useNavigate()
     const { user } = useContext(AuthContext);
     const { url } = useContext(ConfigContext)
     
