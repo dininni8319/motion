@@ -132,9 +132,9 @@ class PublicController extends Controller
         ]);
     }
 
-    public function getUserProfile(Request $request, $id){
+    public function getUserProfile(){
 
-        $user = User::find($id);
+        $user = User::all();
 
         return response()->json([
             'status' => 200,

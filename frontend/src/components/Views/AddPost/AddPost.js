@@ -13,12 +13,11 @@ import axios from 'axios';
 
 const AddPost = () => {
     const { user } = useContext(AuthContext);
-    const { posts } = useContext(PostsContext);
-
+    const { posts, getUsersProfile } = useContext(PostsContext);
+    
     const [error, setError] = useState(false);
     const [content, setContent] = useState('');
     const [image, setImage] = useState([]);
-    const [allUsers, setAllUsers] = useState([]);
 
     const token = user.token;
 
@@ -27,12 +26,6 @@ const AddPost = () => {
     const imageHandler = (file) => {
         setImage(file[0]);
     };
-
-    useEffect(() => {
-        fetch('http://localhost:8000/api/users/get-all-users')
-            .then((resp) => resp.json())
-            .then((data) => setAllUsers(data.data));
-    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -65,7 +58,7 @@ const AddPost = () => {
     return (
         <AddPostStyle>
             <Navbar />
-            <SideBar allUsers={allUsers} />
+            <SideBar allUsers={getUsersProfile} />
 
             <FormPost 
               imageHandler={imageHandler}

@@ -6,8 +6,8 @@ export const PostsContext = createContext();
 
 export function PostsProvider(props) {
 
-    const [posts, setPosts] = useState([]);
-    const [ getUserProfile, setGetUserProfile ] = useState([])
+    const [ posts, setPosts ] = useState([]);
+    const [ getUsersProfile, setGetUsersProfile ] = useState([])
     const { user } = useContext(AuthContext);
     const { url } = useContext(ConfigContext);
     
@@ -22,19 +22,19 @@ export function PostsProvider(props) {
             .catch((e) => console.log(e));
     }, []);
     
-    // useEffect(() => {
-    //     fetch(`${url.backend}/api/users/posts`, {
-    //         headers: {
-    //             Authorization: `Bearer ${user?.token}`
-    //         }
-    //     })
-    //         .then((resp) => resp.json())
-    //         .then((data) => setPosts(data.posts))
-    //         .catch((e) => console.log(e));
-    // }, []);
+    useEffect(() => {
+        fetch(`${url.backend}/api/users/get-all-users`, {
+            headers: {
+                Authorization: `Bearer ${user?.token}`
+            }
+        })
+            .then((resp) => resp.json())
+            .then((data) => setGetUsersProfile(data.user))
+            .catch((e) => console.log(e));
+    }, []);
 
     return (
-        <PostsContext.Provider value={{ posts }}>
+        <PostsContext.Provider value={{ posts, getUsersProfile }}>
             {props.children}
         </PostsContext.Provider>
     );
