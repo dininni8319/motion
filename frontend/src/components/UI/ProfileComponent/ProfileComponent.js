@@ -8,16 +8,15 @@ const ProfileComponent = ({ slug }) => {
 
     const { getUsersProfile } = useContext(PostsContext);
     let userProfile = getUsersProfile?.filter(el => el.id === Number(slug))[0]
-    
-    return ( 
+    let profile = userProfile?.city && getUsersProfile?.phone_number && getUsersProfile?.address && getUsersProfile?.zip_code && getUsersProfile?.description
 
+    return ( 
         <>
             {
-                userProfile && <ProfileStyle className="">
+                userProfile  && <ProfileStyle className="">
                     <ProfileDetail>
                         <section className='profile-detail-img-section'>
                             <h2 className="my-5">Title:{userProfile.first_name} {userProfile.last_name}</h2>
-                            <p className='mt-3'>Description:{userProfile.description}</p>
                         </section>
             
                         <ul className='profile-detail-section mt-5'>
@@ -25,22 +24,27 @@ const ProfileComponent = ({ slug }) => {
                             icon={faEnvelope}
                             className={`fa-1x mx-1 icon-custom-style`}         
                         />: {userProfile.email}</li>
-                            <li><FontAwesomeIcon
-                            icon={faCity}
-                            className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {userProfile.city}</li>
-                            <li><FontAwesomeIcon
-                            icon={faLocationDot}
-                            className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {userProfile.phone_number}</li>
-                            <li><FontAwesomeIcon
-                            icon={faEnvelope}
-                            className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {userProfile.zip_code}</li>
-                        <li><FontAwesomeIcon
-                            icon={faAddressBook}
-                            className={`fa-1x mx-1 icon-custom-style`}         
-                        />: {userProfile.address}</li>
+                            {
+                                profile !== undefined || profile !== null && <>
+                                        <li><FontAwesomeIcon
+                                            icon={faCity}
+                                            className={`fa-1x mx-1 icon-custom-style`}         
+                                        />: {userProfile.city}</li>
+                                        <li><FontAwesomeIcon
+                                            icon={faLocationDot}
+                                            className={`fa-1x mx-1 icon-custom-style`}         
+                                        />: {userProfile.phone_number}</li>
+                                            <li><FontAwesomeIcon
+                                            icon={faEnvelope}
+                                            className={`fa-1x mx-1 icon-custom-style`}         
+                                        />: {userProfile.zip_code}</li>
+                                        <li><FontAwesomeIcon
+                                            icon={faAddressBook}
+                                            className={`fa-1x mx-1 icon-custom-style`}         
+                                        />: {userProfile.address}</li>
+                                        <p className='mt-3'>Description:{userProfile.description}</p>
+                                   </> 
+                                 }
                         </ul>
                     </ProfileDetail>
                 </ProfileStyle>

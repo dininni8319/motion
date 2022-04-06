@@ -7,9 +7,10 @@ import { AuthContext } from '../../Context/Auth/index'
 
 const SideBar = ({ allUsers }) => {
     let innerWidth = window.innerWidth;
-
+    
     let { user } = useContext(AuthContext);
-    if (innerWidth < 700) {
+    
+    if (innerWidth < 1400) {
         allUsers?.slice(0, 8);
     }
 

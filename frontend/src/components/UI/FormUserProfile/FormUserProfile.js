@@ -8,6 +8,8 @@ import axios from 'axios';
 
 const FormUserProfile = ({ slug }) => {
     let { user } = useContext(AuthContext)
+    let authUser = user.id === Number(slug);
+
     const [image, setImage] = useState([]);
     const [error, setError] = useState(false);
 
@@ -62,6 +64,7 @@ const FormUserProfile = ({ slug }) => {
                 phone={phone}
                 zipCode={zipCode}
                 error={error}
+                authUser={authUser}
             />
         </FormUserProfileStyle>    
      );

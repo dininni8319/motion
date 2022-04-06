@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { InputSection } from '../../../Views/Login/LoginStyle';
-import { RegisterStyle, ButtonStyle } from './../../../Views/Register/RegisterStyle';
 import { FormProfileStyle, ButtonProfileStyle } from './FormProfileStyle';
 
-const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCode, city, description}) => {
+const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCode, city, description, authUser}) => {
     const [ completeProfile, setCompleteProfile ] = useState(false);
     
     const handleForm = (e) => {
@@ -12,10 +11,13 @@ const FormProfile = ({ handleSubmit, phone, error, imageHandler, address, zipCod
 
     return ( 
         <>
-              <button onClick={handleForm} className='px-3 '>Complete or update your profile</button>
-            {
+          {
+              authUser && <button onClick={handleForm} className='px-3'>Complete or update your profile</button>
 
-                completeProfile  && <FormProfileStyle onSubmit={handleSubmit} > 
+          }
+          
+            {
+                completeProfile && authUser && <FormProfileStyle onSubmit={handleSubmit} > 
                         <section className="row-form mt-5">
                                 <h1
                                     className={`text-black font-medium text-3xl mb-3 mt-12`}
