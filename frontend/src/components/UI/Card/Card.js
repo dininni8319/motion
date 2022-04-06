@@ -8,6 +8,7 @@ import { formatDate } from './../../utilities/functions';
 const Card = ({ posts }) => {
 
     const [ comments, setComments ] = useState(null);
+    const [ commentsSpecificCard, setCommentsSpecificCard] = useState(null)
     const [ showComments, setShowComments ] = useState(false);
     const { url } = useContext(ConfigContext)
     const { user } = useContext(AuthContext)
@@ -19,9 +20,16 @@ const Card = ({ posts }) => {
             .then(resp => resp.json())
             .then(data => setComments(data.comments))
     }, [])
+    
+    const handleShowComments = (id) => {
 
-    const handleShowComments = () => {
-        setShowComments(true);
+        let unique = posts.some(el => {
+            if (id === el.id)  return true
+        })
+        if (unique) {
+            setCommentsSpecificCard(id)
+            setShowComments(true);
+        }
     }
 
     return (
@@ -47,10 +55,10 @@ const Card = ({ posts }) => {
                                         alt={el.content}
                                         />
                                     <FormComment id={el.id} />
-                                    <section className='section-comments' onClick={handleShowComments}>
+                                    <section className='section-comments' onClick={() => handleShowComments(el.id)}>
                                     
                                         {
-                                            showComments ? comments?.map(element => {
+                                            showComments && commentsSpecificCard === el.id  ? comments?.map(element => {
                                                 return (
                                                     <section key={element.id} className='my-3 mx-2 drop-shadow-md'>
                                                         {

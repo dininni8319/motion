@@ -11,7 +11,6 @@ const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const { getUsersProfile } = useContext(PostsContext);
     let userProfile = getUsersProfile?.filter(el => el.id === user.id)[0]
-    // console.log(user, 'testing the profile');
 
     return (
         <NavbarStyle>

@@ -19,7 +19,7 @@ export const LoginStyled = styled.form`
         position: relative;
         width: 60vw;
     }
-
+    
     .section-img > img {
         width: 100%;
         height: 100vh;
@@ -39,6 +39,13 @@ export const LoginStyled = styled.form`
             rgba(196, 104, 255, 0.2),
             rgba(110, 145, 246, 0.2)
         );
+    }
+
+    @media  screen and (max-width : 700px) { 
+        .section-img {
+           display: none;
+        }
+
     }
 
     input {
@@ -84,4 +91,9 @@ export const LoginStyled = styled.form`
 export const InputSection = styled.section`
     width: 50%;
     margin-bottom: 20px;
+
+@media  screen and (max-width : 700px) { 
+    width: 80%;
+
+    }
 `;

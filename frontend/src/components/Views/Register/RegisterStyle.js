@@ -48,6 +48,13 @@ export const RegisterStyle = styled.form`
         );
     }
 
+    @media  screen and (max-width : 700px) { 
+        .section-img {
+           display: none;
+        }
+
+    }
+
     h2,
     p,
     .icon-custom-style {

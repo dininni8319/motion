@@ -42,6 +42,21 @@ export const InputSection = styled.section`
     justify-content: center;
     padding-top: 10px;
     width: 100%;
+
+    input[type="file"] {
+       display: none;
+    }
+    
+    .custom-file-upload {
+        border: 2px solid #ccc;
+        display: inline-block;
+        padding: 5px 20px;
+        cursor: pointer;
+    }
+    .custom-file-upload::after {
+        content: 'Upload an image';
+    
+    }
 `;
 
 export const ButtonAddPostStyle = styled.button`

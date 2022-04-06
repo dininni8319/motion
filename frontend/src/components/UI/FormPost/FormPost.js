@@ -2,7 +2,8 @@ import {
     FormAddPostStyle,
     InputSection
 } from './../../Views/AddPost/AddPostStyle';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { ButtonProfileStyle } from './FormPostStyle'
 
 const FormPost = ({ handleSubmit, imageHandler, setContent, content, error }) => {
@@ -18,10 +19,13 @@ const FormPost = ({ handleSubmit, imageHandler, setContent, content, error }) =>
                 </ButtonProfileStyle>
             </InputSection>
             <InputSection>
+            
+            <label className="custom-file-upload">
                 <input
                     type="file"
                     onChange={(e) => imageHandler(e.target.files)}
                 />
+            </label>
             </InputSection>
 
             <InputSection>
